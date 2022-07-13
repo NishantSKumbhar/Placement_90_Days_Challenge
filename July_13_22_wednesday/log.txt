@@ -1,0 +1,35 @@
+Declaration statement 4 types : storage classes
+	1: automatic(auto)
+	2: register(register)
+	3: static(static)
+	4: external(extern)
+
++-------------+-----------+------------+-------------+--------------------------+------------------------+
+| Storage     |  Keyword  |  Default   |   Storage   |          Scope           |          Life			 |
+|  Class      |			  |	  Value    |             |                          |                        |
++-------------+-----------+------------+-------------+--------------------------+------------------------+
+|			  |			  |			   |             |							|						 |
+|1: Automatic |  auto 	  |  Garbage   |    RAM	     |  Block in which declared | Till execution of block|
++-------------+-----------+------------+-------------+--------------------------+------------------------+
+|			  |			  |			   |             |							|						 |
+|2: Register  | register  |  Garbage   |CPU Register |  Block in which declared | Till execution of block|
++-------------+-----------+------------+-------------+--------------------------+------------------------+
+|			  |			  |			   |             |							|						 |
+|3: Static    | static    |  0(zero)   |    RAM      |  Block in which declared | Till the Program Ends  |
++-------------+-----------+------------+-------------+--------------------------+------------------------+
+|			  |			  |			   |             |							|						 |
+|4: External  | extern    |  0(zero)   |    RAM      |  		Global      	| Till the Program Ends  |
++-------------+-----------+------------+-------------+--------------------------+------------------------+
+
+
+
+
+Register : if variable is using more in calculation then register is used. which is then stored in CPU 
+	register for faster execution.
+	there is not 100% chance that we always get register in cpu. it get if available.
+	mostly for int , char not for heigher
+
+External : can not make inside any function.
+		   dont use extern keyword to declare the variable , just make outside the block.
+		   use extern if you need that global variable inside particular function..
+		   
