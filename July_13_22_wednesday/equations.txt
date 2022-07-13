@@ -1,0 +1,10 @@
+>>> Dividend = Divisor * Quotient + Reminder
+
+>>> (a + b)^2 = a^2 + 2ab + b^2
+>>> (a - b)^2 = a^2 - 2ab + b^2
+>>> a^2 - b^2 = (a + b)(a - b)
+
+
+>>> Sum of n Number : (1+2+3+...+n) = (1/2)n(n+1)
+>>> Sum of squares (1^2 + 2^2 + 3^2 + .. + n^2) = (1/6)n(n+1)(2n+1)
+>>> Sum of Cubes (1^3+2^3+3^3+...+n^3) = (1/4)n^2(n+1)^2
