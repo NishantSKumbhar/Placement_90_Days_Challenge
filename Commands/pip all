@@ -1,0 +1,479 @@
+Microsoft Windows [Version 10.0.19044.1645]
+(c) Microsoft Corporation. All rights reserved.
+
+D:\DJANGO>pip list
+Package              Version
+-------------------- ---------
+anyio                3.5.0
+appdirs              1.4.4
+argon2-cffi          21.3.0
+argon2-cffi-bindings 21.2.0
+arrow                1.2.2
+asgiref              3.5.0
+asttokens            2.0.5
+attrs                21.4.0
+Babel                2.9.1
+backcall             0.2.0
+beautifulsoup4       4.10.0
+black                22.1.0
+bleach               4.1.0
+bs4                  0.0.1
+certifi              2021.10.8
+cffi                 1.15.0
+charset-normalizer   2.0.11
+click                8.0.3
+colorama             0.4.4
+cycler               0.11.0
+debugpy              1.5.1
+decorator            5.1.1
+defusedxml           0.7.1
+distlib              0.3.4
+Django               4.0.3
+django-crispy-forms  1.14.0
+entrypoints          0.3
+executing            0.8.2
+filelock             3.6.0
+Flask                2.0.2
+fonttools            4.29.1
+idna                 3.3
+importlib-metadata   4.11.1
+ipykernel            6.7.0
+ipython              8.0.1
+ipython-genutils     0.2.0
+itsdangerous         2.0.1
+jedi                 0.18.1
+Jinja2               3.0.3
+json5                0.9.6
+jsonschema           4.4.0
+jupyter-client       7.1.2
+jupyter-core         4.9.1
+jupyter-server       1.13.4
+jupyterlab           3.2.8
+jupyterlab-pygments  0.1.2
+jupyterlab-server    2.10.3
+kiwisolver           1.3.2
+MarkupSafe           2.0.1
+matplotlib           3.5.1
+matplotlib-inline    0.1.3
+mistune              0.8.4
+mypy-extensions      0.4.3
+nbclassic            0.3.5
+nbclient             0.5.10
+nbconvert            6.4.1
+nbformat             5.1.3
+nest-asyncio         1.5.4
+notebook             6.4.8
+numpy                1.22.1
+packaging            21.3
+pandas               1.4.0
+pandocfilters        1.5.0
+parso                0.8.3
+pathspec             0.9.0
+pickleshare          0.7.5
+Pillow               9.0.1
+pip                  22.0.4
+pipenv               2022.1.8
+platformdirs         2.4.1
+prometheus-client    0.13.1
+prompt-toolkit       3.0.26
+pure-eval            0.2.2
+pycparser            2.21
+pyee                 8.2.2
+Pygments             2.11.2
+pyparsing            3.0.7
+pyppeteer            0.2.6
+pyrsistent           0.18.1
+python-dateutil      2.8.2
+pytz                 2021.3
+pywin32              303
+pywinpty             2.0.1
+pyzmq                22.3.0
+requests             2.27.1
+scipy                1.8.0
+seaborn              0.11.2
+Send2Trash           1.8.0
+setuptools           58.1.0
+six                  1.16.0
+sniffio              1.2.0
+soupsieve            2.3.1
+sqlparse             0.4.2
+stack-data           0.1.4
+terminado            0.13.1
+testpath             0.5.0
+tomli                2.0.0
+tornado              6.1
+tqdm                 4.62.3
+traitlets            5.1.1
+tzdata               2021.5
+urllib3              1.26.8
+virtualenv           20.13.1
+virtualenv-clone     0.5.7
+wcwidth              0.2.5
+webencodings         0.5.1
+websocket-client     1.2.3
+websockets           9.1
+Werkzeug             2.0.2
+zipp                 3.7.0
+
+D:\DJANGO>python -m venv new_project_env
+
+D:\DJANGO>dir
+ Volume in drive D is New Volume
+ Volume Serial Number is 943C-E242
+
+ Directory of D:\DJANGO
+
+09-05-2022  22:29    <DIR>          .
+09-05-2022  22:29    <DIR>          ..
+29-03-2022  19:26    <DIR>          .idea
+18-03-2022  10:19    <DIR>          constructionn
+06-05-2022  19:57    <DIR>          django_project
+28-03-2022  23:03    <DIR>          Elitevnv
+02-05-2022  14:55    <DIR>          ForkInfosystems
+07-05-2022  19:42    <DIR>          Lexcrop
+01-04-2022  13:46             1,525 main.html
+08-04-2022  19:26    <DIR>          mysite
+09-05-2022  10:23    <DIR>          My_Office
+24-03-2022  11:36    <DIR>          new_project
+09-05-2022  22:29    <DIR>          new_project_env
+08-05-2022  13:18    <DIR>          Office
+29-03-2022  22:40    <DIR>          Personal_ENV
+24-03-2022  11:40            18,023 pip all
+20-03-2022  18:48    <DIR>          pyshop
+24-03-2022  11:27               106 requirements.txt
+28-03-2022  16:01    <DIR>          Storefront
+               3 File(s)         19,654 bytes
+              16 Dir(s)  118,494,765,056 bytes free
+
+D:\DJANGO>cd new_project_env
+
+D:\DJANGO\new_project_env>dir
+ Volume in drive D is New Volume
+ Volume Serial Number is 943C-E242
+
+ Directory of D:\DJANGO\new_project_env
+
+09-05-2022  22:29    <DIR>          .
+09-05-2022  22:29    <DIR>          ..
+09-05-2022  22:29    <DIR>          Include
+09-05-2022  22:29    <DIR>          Lib
+09-05-2022  22:29               118 pyvenv.cfg
+09-05-2022  22:30    <DIR>          Scripts
+               1 File(s)            118 bytes
+               5 Dir(s)  118,494,765,056 bytes free
+
+D:\DJANGO\new_project_env>cd..
+
+D:\DJANGO>cd new_project_env
+
+D:\DJANGO\new_project_env>Scripts\activate.bat
+
+(new_project_env) D:\DJANGO\new_project_env>where python
+'where' is not recognized as an internal or external command,
+operable program or batch file.
+
+(new_project_env) D:\DJANGO\new_project_env>pip list
+Package    Version
+---------- -------
+pip        21.2.4
+setuptools 58.1.0
+WARNING: You are using pip version 21.2.4; however, version 22.0.4 is available.
+You should consider upgrading via the 'D:\DJANGO\new_project_env\Scripts\python.exe -m pip install --upgrade pip' command.
+
+(new_project_env) D:\DJANGO\new_project_env>pip install django
+Collecting django
+  Downloading Django-4.0.4-py3-none-any.whl (8.0 MB)
+     |████████████████████████████████| 8.0 MB 6.8 MB/s
+Collecting sqlparse>=0.2.2
+  Using cached sqlparse-0.4.2-py3-none-any.whl (42 kB)
+Collecting asgiref<4,>=3.4.1
+  Downloading asgiref-3.5.1-py3-none-any.whl (22 kB)
+Collecting tzdata
+  Using cached tzdata-2022.1-py2.py3-none-any.whl (339 kB)
+Installing collected packages: tzdata, sqlparse, asgiref, django
+Successfully installed asgiref-3.5.1 django-4.0.4 sqlparse-0.4.2 tzdata-2022.1
+WARNING: You are using pip version 21.2.4; however, version 22.0.4 is available.
+You should consider upgrading via the 'D:\DJANGO\new_project_env\Scripts\python.exe -m pip install --upgrade pip' command.
+
+(new_project_env) D:\DJANGO\new_project_env>pip list
+Package    Version
+---------- -------
+asgiref    3.5.1
+Django     4.0.4
+pip        21.2.4
+setuptools 58.1.0
+sqlparse   0.4.2
+tzdata     2022.1
+WARNING: You are using pip version 21.2.4; however, version 22.0.4 is available.
+You should consider upgrading via the 'D:\DJANGO\new_project_env\Scripts\python.exe -m pip install --upgrade pip' command.
+
+(new_project_env) D:\DJANGO\new_project_env>pip install djangorestframework
+Collecting djangorestframework
+  Downloading djangorestframework-3.13.1-py3-none-any.whl (958 kB)
+     |████████████████████████████████| 958 kB 3.3 MB/s
+Requirement already satisfied: django>=2.2 in d:\django\new_project_env\lib\site-packages (from djangorestframework) (4.0.4)
+Collecting pytz
+  Using cached pytz-2022.1-py2.py3-none-any.whl (503 kB)
+Requirement already satisfied: sqlparse>=0.2.2 in d:\django\new_project_env\lib\site-packages (from django>=2.2->djangorestframework) (0.4.2)
+Requirement already satisfied: tzdata in d:\django\new_project_env\lib\site-packages (from django>=2.2->djangorestframework) (2022.1)
+Requirement already satisfied: asgiref<4,>=3.4.1 in d:\django\new_project_env\lib\site-packages (from django>=2.2->djangorestframework) (3.5.1)
+Installing collected packages: pytz, djangorestframework
+Successfully installed djangorestframework-3.13.1 pytz-2022.1
+WARNING: You are using pip version 21.2.4; however, version 22.0.4 is available.
+You should consider upgrading via the 'D:\DJANGO\new_project_env\Scripts\python.exe -m pip install --upgrade pip' command.
+
+(new_project_env) D:\DJANGO\new_project_env>pip list
+Package             Version
+------------------- -------
+asgiref             3.5.1
+Django              4.0.4
+djangorestframework 3.13.1
+pip                 21.2.4
+pytz                2022.1
+setuptools          58.1.0
+sqlparse            0.4.2
+tzdata              2022.1
+WARNING: You are using pip version 21.2.4; however, version 22.0.4 is available.
+You should consider upgrading via the 'D:\DJANGO\new_project_env\Scripts\python.exe -m pip install --upgrade pip' command.
+
+(new_project_env) D:\DJANGO\new_project_env>pip freze
+ERROR: unknown command "freze" - maybe you meant "freeze"
+
+(new_project_env) D:\DJANGO\new_project_env>pip freeze
+asgiref==3.5.1
+Django==4.0.4
+djangorestframework==3.13.1
+pytz==2022.1
+sqlparse==0.4.2
+tzdata==2022.1
+
+(new_project_env) D:\DJANGO\new_project_env>deactivate
+D:\DJANGO\new_project_env>cd ..
+
+D:\DJANGO>rmdir new_project_env /s
+new_project_env, Are you sure (Y/N)? y
+
+D:\DJANGO>dir
+ Volume in drive D is New Volume
+ Volume Serial Number is 943C-E242
+
+ Directory of D:\DJANGO
+
+09-05-2022  22:47    <DIR>          .
+09-05-2022  22:47    <DIR>          ..
+29-03-2022  19:26    <DIR>          .idea
+18-03-2022  10:19    <DIR>          constructionn
+06-05-2022  19:57    <DIR>          django_project
+28-03-2022  23:03    <DIR>          Elitevnv
+02-05-2022  14:55    <DIR>          ForkInfosystems
+07-05-2022  19:42    <DIR>          Lexcrop
+01-04-2022  13:46             1,525 main.html
+08-04-2022  19:26    <DIR>          mysite
+09-05-2022  10:23    <DIR>          My_Office
+24-03-2022  11:36    <DIR>          new_project
+08-05-2022  13:18    <DIR>          Office
+29-03-2022  22:40    <DIR>          Personal_ENV
+24-03-2022  11:40            18,023 pip all
+20-03-2022  18:48    <DIR>          pyshop
+24-03-2022  11:27               106 requirements.txt
+28-03-2022  16:01    <DIR>          Storefront
+               3 File(s)         19,654 bytes
+              15 Dir(s)  118,509,481,984 bytes free
+
+D:\DJANGO>mkdir REST
+
+D:\DJANGO>cd REST
+
+D:\DJANGO\REST>cd..
+
+D:\DJANGO>python -m venv REST/project_1
+
+D:\DJANGO>REST\project_1\Scripts\activate.bat
+
+(project_1) D:\DJANGO>cd REST
+
+(project_1) D:\DJANGO\REST>cd project_1
+
+(project_1) D:\DJANGO\REST\project_1>pip install reqirements.txt
+ERROR: Could not find a version that satisfies the requirement reqirements.txt (from versions: none)
+ERROR: No matching distribution found for reqirements.txt
+WARNING: You are using pip version 21.2.4; however, version 22.0.4 is available.
+You should consider upgrading via the 'D:\DJANGO\REST\project_1\Scripts\python.exe -m pip install --upgrade pip' command.
+
+(project_1) D:\DJANGO\REST\project_1>pip install -r reqirements.txt
+ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'reqirements.txt'
+WARNING: You are using pip version 21.2.4; however, version 22.0.4 is available.
+You should consider upgrading via the 'D:\DJANGO\REST\project_1\Scripts\python.exe -m pip install --upgrade pip' command.
+
+(project_1) D:\DJANGO\REST\project_1>cd ..
+
+(project_1) D:\DJANGO\REST>cd ..
+
+(project_1) D:\DJANGO>pip install -r reqirements.txt
+ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'reqirements.txt'
+WARNING: You are using pip version 21.2.4; however, version 22.0.4 is available.
+You should consider upgrading via the 'D:\DJANGO\REST\project_1\Scripts\python.exe -m pip install --upgrade pip' command.
+
+(project_1) D:\DJANGO>pip install -r requirements.txt
+Collecting asgiref==3.5.1
+  Using cached asgiref-3.5.1-py3-none-any.whl (22 kB)
+Collecting Django==4.0.4
+  Using cached Django-4.0.4-py3-none-any.whl (8.0 MB)
+Collecting djangorestframework==3.13.1
+  Using cached djangorestframework-3.13.1-py3-none-any.whl (958 kB)
+Collecting pytz==2022.1
+  Using cached pytz-2022.1-py2.py3-none-any.whl (503 kB)
+Collecting sqlparse==0.4.2
+  Using cached sqlparse-0.4.2-py3-none-any.whl (42 kB)
+Collecting tzdata==2022.1
+  Using cached tzdata-2022.1-py2.py3-none-any.whl (339 kB)
+Installing collected packages: tzdata, sqlparse, asgiref, pytz, Django, djangorestframework
+Successfully installed Django-4.0.4 asgiref-3.5.1 djangorestframework-3.13.1 pytz-2022.1 sqlparse-0.4.2 tzdata-2022.1
+WARNING: You are using pip version 21.2.4; however, version 22.0.4 is available.
+You should consider upgrading via the 'D:\DJANGO\REST\project_1\Scripts\python.exe -m pip install --upgrade pip' command.
+
+(project_1) D:\DJANGO>pip list
+Package             Version
+------------------- -------
+asgiref             3.5.1
+Django              4.0.4
+djangorestframework 3.13.1
+pip                 21.2.4
+pytz                2022.1
+setuptools          58.1.0
+sqlparse            0.4.2
+tzdata              2022.1
+WARNING: You are using pip version 21.2.4; however, version 22.0.4 is available.
+You should consider upgrading via the 'D:\DJANGO\REST\project_1\Scripts\python.exe -m pip install --upgrade pip' command.
+
+(project_1) D:\DJANGO>deactivate
+D:\DJANGO>python -m venv REST/project_2 --system-site-packages
+
+D:\DJANGO>REST\project_2\Scripts\activate.bat
+
+(project_2) D:\DJANGO>pip list
+Package              Version
+-------------------- ---------
+anyio                3.5.0
+appdirs              1.4.4
+argon2-cffi          21.3.0
+argon2-cffi-bindings 21.2.0
+arrow                1.2.2
+asgiref              3.5.0
+asttokens            2.0.5
+attrs                21.4.0
+Babel                2.9.1
+backcall             0.2.0
+beautifulsoup4       4.10.0
+black                22.1.0
+bleach               4.1.0
+bs4                  0.0.1
+certifi              2021.10.8
+cffi                 1.15.0
+charset-normalizer   2.0.11
+click                8.0.3
+colorama             0.4.4
+cycler               0.11.0
+debugpy              1.5.1
+decorator            5.1.1
+defusedxml           0.7.1
+distlib              0.3.4
+Django               4.0.3
+django-crispy-forms  1.14.0
+entrypoints          0.3
+executing            0.8.2
+filelock             3.6.0
+Flask                2.0.2
+fonttools            4.29.1
+idna                 3.3
+importlib-metadata   4.11.1
+ipykernel            6.7.0
+ipython              8.0.1
+ipython-genutils     0.2.0
+itsdangerous         2.0.1
+jedi                 0.18.1
+Jinja2               3.0.3
+json5                0.9.6
+jsonschema           4.4.0
+jupyter-client       7.1.2
+jupyter-core         4.9.1
+jupyter-server       1.13.4
+jupyterlab           3.2.8
+jupyterlab-pygments  0.1.2
+jupyterlab-server    2.10.3
+kiwisolver           1.3.2
+MarkupSafe           2.0.1
+matplotlib           3.5.1
+matplotlib-inline    0.1.3
+mistune              0.8.4
+mypy-extensions      0.4.3
+nbclassic            0.3.5
+nbclient             0.5.10
+nbconvert            6.4.1
+nbformat             5.1.3
+nest-asyncio         1.5.4
+notebook             6.4.8
+numpy                1.22.1
+packaging            21.3
+pandas               1.4.0
+pandocfilters        1.5.0
+parso                0.8.3
+pathspec             0.9.0
+pickleshare          0.7.5
+Pillow               9.0.1
+pip                  21.2.4
+pipenv               2022.1.8
+platformdirs         2.4.1
+prometheus-client    0.13.1
+prompt-toolkit       3.0.26
+pure-eval            0.2.2
+pycparser            2.21
+pyee                 8.2.2
+Pygments             2.11.2
+pyparsing            3.0.7
+pyppeteer            0.2.6
+pyrsistent           0.18.1
+python-dateutil      2.8.2
+pytz                 2021.3
+pywin32              303
+pywinpty             2.0.1
+pyzmq                22.3.0
+requests             2.27.1
+scipy                1.8.0
+seaborn              0.11.2
+Send2Trash           1.8.0
+setuptools           58.1.0
+six                  1.16.0
+sniffio              1.2.0
+soupsieve            2.3.1
+sqlparse             0.4.2
+stack-data           0.1.4
+terminado            0.13.1
+testpath             0.5.0
+tomli                2.0.0
+tornado              6.1
+tqdm                 4.62.3
+traitlets            5.1.1
+tzdata               2021.5
+urllib3              1.26.8
+virtualenv           20.13.1
+virtualenv-clone     0.5.7
+wcwidth              0.2.5
+webencodings         0.5.1
+websocket-client     1.2.3
+websockets           9.1
+Werkzeug             2.0.2
+zipp                 3.7.0
+WARNING: You are using pip version 21.2.4; however, version 22.0.4 is available.
+You should consider upgrading via the 'D:\DJANGO\REST\project_2\Scripts\python.exe -m pip install --upgrade pip' command.
+
+(project_2) D:\DJANGO>pip list --local
+Package    Version
+---------- -------
+pip        21.2.4
+setuptools 58.1.0
+WARNING: You are using pip version 21.2.4; however, version 22.0.4 is available.
+You should consider upgrading via the 'D:\DJANGO\REST\project_2\Scripts\python.exe -m pip install --upgrade pip' command.
+
+(project_2) D:\DJANGO>deactivate
+D:\DJANGO>
