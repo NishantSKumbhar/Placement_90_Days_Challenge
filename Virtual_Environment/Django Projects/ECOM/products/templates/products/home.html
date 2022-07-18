@@ -1,0 +1,56 @@
+{% extends 'products/base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <br/>
+            <br/>
+            <h1>Welcome Nishant...</h1>
+            <img src="https://static.wikia.nocookie.net/rio/images/6/63/Blue_Sky_Studios_logo.jpg/revision/latest?cb=20131014155215" height="300" width="650">
+        </div>  
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Products Card View</h5>
+                      <p class="card-text">Here we have listed the Products the in Card Format.</p>
+                      <a href="{% url 'products-card' %}" class="btn btn-primary">View Cards</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Products Table View</h5>
+                        <p class="card-text">Here we have listed the Products the in Tabular Format.</p>
+                        <a href="{% url 'products-table' %}" class="btn btn-primary">View Tables</a>
+                    </div>
+                  </div>
+                </div>
+            </div><br/>
+            <br/>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Add the Products</h5>
+                    <p class="card-text">Here we can Update the Product Details.</p>
+                    <a href="{% url 'products-add' %}" class="btn btn-primary">Add Products</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title">Add the Dsicount</h5>
+                      <p class="card-text">Here we can add the Discounts.</p>
+                      <a href="{% url 'discount-add' %}" class="btn btn-primary">Add Discount</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+          
+        </div>
+    </div>
+    
+{% endblock content %}

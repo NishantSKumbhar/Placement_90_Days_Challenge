@@ -1,0 +1,38 @@
+{% extends 'products/base.html' %}
+{% block content %}
+    <div class="row">
+        <h1>Tablular Format </h1>
+        <div class="col-md-12">
+            <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Discount</th>
+                      <th scope="col">Date </th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for i in products %}
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{{ i.title }}</td>
+                    <td>Rs. {{ i.price }}</td>
+                    <td>{{ i.user }}</td>
+                    <td>{{ i.stock }}</td>
+                    <td>{{ i.discount }}</td>
+                    <td>{{ i.date_posted }}</td>
+                    <td><a href="{% url 'products-update' i.id %}"><button type="button" class="btn btn-outline-success">Update</button></a></td>
+                    <td><a href="{% url 'products-delete' i.id %}"><button type="button" class="btn btn-outline-danger">Delete</button></a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+    </div>
+{% endblock content %}
