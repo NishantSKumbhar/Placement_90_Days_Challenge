@@ -1,0 +1,40 @@
+{% extends 'course/base.html' %}
+{% block content %}
+  <h2 class="text-muted" >Want to know why, {{ courses.title }} ?</h2><br>
+  <div class="row">
+      <div class="col-md-6">
+          
+            <img src="{{ courses.author_img }}" class="card-img-top" alt="{{ courses.author_name }}">
+            <div class="card-body">
+              <center><b><p class="card-text">"{{ courses.author_quotes }}"</p></b></center>
+              <center><p class="card-text text-muted">-----------: {{ courses.author_name }} :-----------</p></center>
+            
+          </div>
+      </div>
+      <div class="col-md-6">
+            <div class="card text">
+              <div class="card-header">
+                Featured
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">{{ courses.title }} MasterClass</h4>
+                <p class="card-text">{{ courses.description }}</p>
+
+                <h5 class="text-muted">Course Contents : </h5>
+                <ul>
+                  <li>Start Date : {{ courses.start_date }}</li>
+                  <li>Duration of Batch : {{ courses.duration }}</li>
+                  <li>Fees : Rs. {{ courses.fees }}</li>
+                  <li>Instructor : {{ courses.teacher }}</li>
+                  <li>Covered Topics : {{ courses.covered_topics }}</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Enroll</a>
+              </div>
+              <div class="card-footer text-muted">
+                2 days ago
+              </div>
+            </div>
+      </div>
+  </div>
+  
+{% endblock content %}

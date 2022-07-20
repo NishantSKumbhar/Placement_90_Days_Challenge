@@ -1,0 +1,22 @@
+{% extends 'course/base.html' %}
+{% block content %}
+  <h1>"Files have Processes and Processes have Life ! "</h1><br>
+  <div class="row">
+        {% for i in courses %}
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ i.img }}" class="card-img-top" alt="{{  i.title }} Photo" height="200" width="300">
+                <div class="card-body">
+                <center><h4 class="card-title">{{ i.title }}</h4></center>
+                <h6 class="card-title">Fees : Rs. {{ i.fees }}</h6>
+                <h6 class="card-title">Duration : {{ i.duration }} Months</h6>
+                
+                <a href="{% url 'More-Info-Course' i.id %}" class="btn btn-primary">More Info</a>
+                </div>
+            </div>
+        <br/>
+        </div>
+        
+        {% endfor %}
+    </div>
+{% endblock content %}

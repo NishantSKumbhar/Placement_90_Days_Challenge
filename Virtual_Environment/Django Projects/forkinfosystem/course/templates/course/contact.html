@@ -1,0 +1,27 @@
+{% extends 'course/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <h1>Better Contact Fork !</h1>
+  <div class="row">
+    <div class="col-md-6">
+        <img src="https://img.freepik.com/free-vector/organic-flat-customer-support-illustration_23-2148899174.jpg" class="rounded img-fluid" alt="...">
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          You can Register here.
+        </div>
+        <div class="card-body">
+          <h6 class="card-title text-muted">"We touch people mostly without touching them: We touch them with our words, with our smile, with our eyes, with our courage, with our madness, with millions of different ways! What are we? We are contacting beings without contacting!"</h6>
+          <form method="POST" action="">
+            {% csrf_token %}
+            {{ form|crispy }}
+          </form>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>    
+  </div>
+
+
+{% endblock content %}
