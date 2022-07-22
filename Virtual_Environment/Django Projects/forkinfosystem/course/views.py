@@ -2,12 +2,22 @@ from django.shortcuts import render, redirect
 from .models import *
 from .forms import *
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
+def fork_home(request):
+	
+	context = {
+		'title' : 'Home | Fork Infosystems',
+		
+	}
+	return render(request, 'course/home.html', context)
 
 
+@login_required
 def course_home(request):
 	courses = Courses.objects.all()
 	context = {
-		'title' : 'Home | Fork Infosystems',
+		'title' : 'Courses | Fork Infosystems',
 		'courses' : courses
 	}
 	return render(request, 'course/c_home.html', context)
@@ -37,22 +47,7 @@ def contact(request):
 	}
 	return render(request, 'course/contact.html', context)
 
-def register_user(request):
-    if request.method == "POST":
-    	form = UserRegistrationForm(request.POST)
-    	if form.is_valid():
-    		form.save()
-    		name = form.cleaned_data.get('username')
-    		messages.success(request, f"{name} Your Account has been successfully created !")
-    		return redirect('/')
-    else:
-    	form = UserRegistrationForm()
-    context = {
-        'title' : 'Register_User | Fork Infosystems',
-        'form' : form
 
-    }
-    return render(request, 'course/register.html', context)
 
 
 def more_info(request, pk):

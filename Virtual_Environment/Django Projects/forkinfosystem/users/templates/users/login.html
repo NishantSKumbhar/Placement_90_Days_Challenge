@@ -1,0 +1,39 @@
+{% extends 'course/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+	<div class="row">
+		<div class="col-md-4">
+		
+	</div>
+	<div class="col-md-4"><br/><br/>
+		<div class="card">
+		  <div class="card-header">
+		    Login
+		  </div>
+		  <div class="card-body">
+		    <h5 class="card-title">Fork Infosystems</h5>
+		    <form method="POST" action="">
+		    	{% csrf_token %}
+		    	<fieldset class="form-group">
+		    		{{ form|crispy }}
+		    	</fieldset>
+		    	<div class="form-group">
+		    		<br/>
+		    		<center><button class="btn btn-outline-info" type="submit">Login 			
+		    		</button></center>	
+		    	</div>
+		    </form>
+		    
+		  </div>
+		  <div class="card-footer text-muted">
+		    Need An Account ? <a class="ml-2" href="{% url 'Register-User' %}">Sign Up</a>
+		  </div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		
+	</div>
+	</div>
+	
+	
+{% endblock content %}

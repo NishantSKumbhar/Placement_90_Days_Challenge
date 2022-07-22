@@ -18,14 +18,17 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-              <a class="navbar-brand" href="{% url 'Course-Home' %}">Fork Infosystems</a>
+              <a class="navbar-brand" href="{% url 'Home' %}">Fork Infosystems</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'Course-Home' %}">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'Home' %}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'Course-Home' %}">Courses</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active" href="{% url 'About-Fork' %}">About</a>
@@ -33,19 +36,19 @@
                   <li class="nav-item">
                     <a class="nav-link active" href="{% url 'Contact-Fork' %}">Contact</a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link active" href="{% url 'Register-User' %}">Register</a>
-                  </li> 
-                  
-                  
+                  </li> --> 
                 </ul>
-                <form class="d-flex">
-                  
-                  <button class="btn btn-outline-success" type="submit">Cart</button>&nbsp;&nbsp;
-                  <a href="{% url 'Register-User' %}"><button class="btn btn-outline-success" type="Register">Register</button></a>&nbsp;&nbsp;
-                  <button class="btn btn-outline-success" type="submit">Log In</button>&nbsp;&nbsp; 
-                  <button class="btn btn-outline-success" type="submit">Log Out</button>
-                </form>
+                <div class="navbar-nav">
+                  {% if user.is_authenticated %}
+                    <a class="nav-item nav-link active" href="{% url 'Logout' %}">Logout</a> 
+                    <a class="nav-item nav-link active" href="{% url 'User-Profile' %}">Profile</a> 
+                  {% else %}
+                    <a class="nav-item nav-link active" href="{% url 'Register-User' %}">Register</a> 
+                    <a class="nav-item nav-link active" href="{% url 'Login' %}">Login</a> 
+                  {% endif %}
+                </div>
               </div>
             </div>
         </nav>

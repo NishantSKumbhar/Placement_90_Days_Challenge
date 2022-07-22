@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'course.apps.CourseConfig',
+    'users.apps.UsersConfig',
     'crispy_forms'
 ]
 
@@ -126,3 +127,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# When you log in , you will be redredted to Home Page
+LOGIN_REDIRECT_URL = 'Home'
+
+
+
+# if you want to access the profile without login in then redirected to login page
+# http://localhost:8000/login/?next=/profile/
+# next = profile ,, means when we login then redirected to profile page
+LOGIN_URL = 'Login'
