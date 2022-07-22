@@ -1,10 +1,10 @@
 {% extends 'course/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-  <h1>Better Contact Fork !</h1>
+  <h1>Better Contact Fork !</h1><br>
   <div class="row">
     <div class="col-md-6">
-        <img src="https://img.freepik.com/free-vector/organic-flat-customer-support-illustration_23-2148899174.jpg" class="rounded img-fluid" alt="...">
+        <img src="https://shotstash.com/wp-content/uploads/2018/11/shot-stash-desk-macbook-man-woman-1-1100x734.jpg" class="rounded img-fluid" alt="...">
     </div>
     <div class="col-md-6">
       <div class="card">
@@ -16,8 +16,13 @@
           <form method="POST" action="">
             {% csrf_token %}
             {{ form|crispy }}
+            <br>  
+            <div class="form-group">
+                <button class="btn btn-outline-secondary" type="submit">Submit</button>
+            </div>
           </form>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <br>
+          
         </div>
       </div>
     </div>    

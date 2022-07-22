@@ -1,10 +1,10 @@
 {% extends 'course/base.html' %}
 {% block content %}
-  <h2 class="text-muted" >Want to know why, {{ courses.title }} ?</h2><br>
+  <h2 class="text-muted">Want to know why, {{ courses.title }} ?</h2><br>
   <div class="row">
       <div class="col-md-6">
           
-            <img src="{{ courses.author_img }}" class="card-img-top" alt="{{ courses.author_name }}">
+            <img src="{{ courses.author_img }}" style="width: 600px; height:400px" class="card-img-top" alt="{{ courses.author_name }}">
             <div class="card-body">
               <center><b><p class="card-text">"{{ courses.author_quotes }}"</p></b></center>
               <center><p class="card-text text-muted">-----------: {{ courses.author_name }} :-----------</p></center>

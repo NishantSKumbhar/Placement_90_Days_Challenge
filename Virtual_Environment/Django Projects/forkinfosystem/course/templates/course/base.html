@@ -33,24 +33,31 @@
                   <li class="nav-item">
                     <a class="nav-link active" href="{% url 'Contact-Fork' %}">Contact</a>
                   </li>
-                  <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
-                  </li> -->
+                  <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'Register-User' %}">Register</a>
+                  </li> 
                   
                   
                 </ul>
                 <form class="d-flex">
                   
-                  <button class="btn btn-outline-success" type="submit">Cart</button>&nbsp;&nbsp; 
+                  <button class="btn btn-outline-success" type="submit">Cart</button>&nbsp;&nbsp;
+                  <a href="{% url 'Register-User' %}"><button class="btn btn-outline-success" type="Register">Register</button></a>&nbsp;&nbsp;
                   <button class="btn btn-outline-success" type="submit">Log In</button>&nbsp;&nbsp; 
                   <button class="btn btn-outline-success" type="submit">Log Out</button>
                 </form>
               </div>
             </div>
         </nav>
-        <br/>
-        
         <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        
           {% block content %}
           {% endblock content %}
         </div>

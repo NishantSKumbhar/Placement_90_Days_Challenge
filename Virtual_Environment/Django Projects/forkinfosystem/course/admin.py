@@ -14,3 +14,4 @@ class CourseAdmin(admin.ModelAdmin):
 
 admin.site.register(Courses, CourseAdmin )
 admin.site.register(Guardian, GuardianAdmin)
+admin.site.register(Contact_Us)
