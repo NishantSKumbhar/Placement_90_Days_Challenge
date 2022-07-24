@@ -23,3 +23,10 @@ class Products(models.Model):
 
     def __str__(self):
         return self.title
+
+class Contact(models.Model):
+    f_name = models.CharField(max_length=50)
+    l_name = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return f"{self.f_name} {self.l_name}"

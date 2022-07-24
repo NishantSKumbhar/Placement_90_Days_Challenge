@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>FORM</title>
+</head>
+<body>
+	<!-- whien does not spectify where to submit form it direct submit to the current page. -->
+	<!-- action -> where our form to be submitted -->
+	<!-- GET : append URL and send to that page
+	POST : you have server and save the information only Browsers acn not handle POST request -->
+	<form action="results.html" method="GET" enctype="multipart/form-data">
+		<!-- Div actuall allows to separate line -->
+		<div>
+			<label for = "emailIDid">Email</label>
+			<input type="email" name="mail" id="emailIDid" placeholder="someone@example.com">
+		</div>
+		<div>
+			<label for = "animalid">Animal</label>
+			<input type="text" name="animal" id="animalid" placeholder="Name of PET">
+		</div>
+		<div>
+			<label for = "ageid">Age</label>
+			<input type="number" name="age" id="ageid" min="10" max="20">
+		</div>
+		<div>
+			<label for = "multipleid">Multiple of 5</label>
+			<input type="number" name="multiple" id="multipleid" min="1" step='5'>
+		</div>
+		<div>
+			<label for = "cityid">City</label>
+			<input type="text" name="city" id="cityid" value="PUNE">
+		</div>
+		<div>
+			<label for = "bid">BirthDay</label>
+			<input type="date" name="bdate" id="bid" min="2022-07-22">
+		</div>
+		<div>
+			<label for = "nameid">Name</label>
+			<input type="text" name="nameEmp" id="nameid" required>
+		</div>
+		<div>
+			<label>Password
+			<input type="password" name="passEmp" required>
+			</label>
+		</div>
+		<div>
+			<label for = "phoneid">Phone</label>
+			<input type="tel" name="phonenumber" id="phoneid">
+		</div>
+		<div>
+			<label for = "colorid">Color</label>
+			<input type="color" name="favcolor" id="colorid">
+		</div>
+		<div>
+			<label for = "gitid">GitHub LINK</label>
+			<input type="url" name="gitlink" id="gitid">
+		</div>
+		<div>
+			<label for = "resumeid">Resume</label>
+			<input type="file" name="resume" id="resumeid">
+		</div>
+		<button type="reset">Reset</button>
+		<button type="submit">Submit</button>
+	</form>
+</body>
+</html>

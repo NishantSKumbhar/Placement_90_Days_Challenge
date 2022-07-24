@@ -1,3 +1,4 @@
+import os
 """
 Django settings for forkinfosystem project.
 
@@ -137,3 +138,13 @@ LOGIN_REDIRECT_URL = 'Home'
 # http://localhost:8000/login/?next=/profile/
 # next = profile ,, means when we login then redirected to profile page
 LOGIN_URL = 'Login'
+
+
+# if you choose image field and set upload to some name then the images will be stored inside
+# that particular folder name in manage.py director which will mess up if the trafic increased.
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# so the profile pics folder stored inside the media folder.
+# os.path.join -> whatever the os you are working with, make simple
+# BASE_DIR --> django created where the project created,, inside that media directory
+
+MEDIA_URL = '/media/'

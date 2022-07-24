@@ -1,4 +1,26 @@
 {% extends 'products/base.html' %}
 {% block content %}
     <h1>Better Call US</h1>
+    {% if not created %}
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div>
+                <label for="f_name_id">First Name</label>
+                <input type="text" name="f_name" id="name_id" required placeholder="John">
+            </div>
+            <div>
+                <label for="l_name_id">Last Name</label>
+                <input type="text" name="l_name" id="l_name_id" required placeholder="Smith">
+            </div>
+            <input type="submit" name="submit_form" value="Submit">
+        </form>
+
+    {% else %}
+        <h1>{{ obj.f_name }} Your Response has been recorded !</h1>
+        <p class="text-muted">
+            Response : 
+            First Name : {{ obj.f_name }}
+            Last Name  : {{ obj.l_name }}
+        </p>
+    {% endif %}
 {% endblock content %}

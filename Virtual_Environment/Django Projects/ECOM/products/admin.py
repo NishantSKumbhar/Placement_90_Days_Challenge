@@ -7,3 +7,4 @@ class ProductAdmin(admin.ModelAdmin):
 
 admin.site.register(Products, ProductAdmin)
 admin.site.register(Discount)
+admin.site.register(Contact)

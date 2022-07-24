@@ -116,7 +116,16 @@ def about(request):
 
 
 def contact(request):
+    
     context = {
         'title' : 'Contact | Products',
     }
+    if request.method == "POST":
+        f_name = request.POST.get('f_name')
+        l_name = request.POST.get('l_name')
+        c_obj = Contact.objects.create(f_name = f_name, l_name = l_name)
+        context['obj'] = c_obj
+        #context['l_name'] = l_name
+        context['created'] = True
+        
     return render(request, 'products/contact.html', context)

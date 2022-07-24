@@ -13,7 +13,7 @@ def fork_home(request):
 	return render(request, 'course/home.html', context)
 
 
-@login_required
+
 def course_home(request):
 	courses = Courses.objects.all()
 	context = {
@@ -30,7 +30,7 @@ def about(request):
     }
     return render(request, 'course/about.html', context)
 
-
+@login_required
 def contact(request):
 	if request.method == "POST":
 		form = ContactForm(request.POST)
@@ -49,7 +49,7 @@ def contact(request):
 
 
 
-
+@login_required
 def more_info(request, pk):
 	courses = Courses.objects.get(id=pk)
 	context = {
