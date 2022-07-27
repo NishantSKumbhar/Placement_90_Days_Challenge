@@ -1,0 +1,110 @@
+USE sql_store;
+
+-- SELECT * FROM customers WHERE customer_id < 5 ORDER BY points
+-- FROM customers
+-- WHERE customer_id = 1
+-- ORDER BY first_name
+
+-- SELECT first_name, last_name, points FROM customers WHERE points >= 3000  ORDER BY points
+-- SELECT first_name,
+-- 	   last_name,
+--        points,
+--        points * 1.05
+-- 		  (points * 10) + 100
+-- FROM customers
+
+-- SELECT first_name, last_name, points, (points * 10) AS 'discount factor' FROM customers
+
+-- if you dont use distinct then duplicates will be there
+SELECT DISTINCT state FROM customers
+
+***********************************************************************************************
+
+
+USE sql_store;
+
+-- SELECT * FROM products
+
+-- SELECT name, unit_price AS 'unit price', (unit_price * 1.1) As 'new price' FROM products
+
+-- SELECT * FROM customers WHERE state = 'VA'
+-- SELECT * FROM customers WHERE state = 'va'
+-- SELECT * FROM customers WHERE state != 'VA'
+
+SELECT * FROM customers WHERE birth_date > '1990-01-01' 
+
+***********************************************************************************************
+
+USE sql_store;
+
+-- SELECT * FROM orders 
+-- SELECT * FROM orders WHERE order_date >= '2019-01-01'
+-- SELECT * FROM customers WHERE birth_date >= '1990-01-01' AND points > 1000
+-- SELECT * FROM customers WHERE birth_date >= '1990-01-01' OR points > 1000
+-- SELECT * FROM customers WHERE birth_date >= '1990-01-01' OR points > 1000 AND state = 'VA'
+
+-- write in the correct order to get correct one
+-- SELECT * FROM customers WHERE (birth_date >= '1990-01-01') OR (points > 1000 AND state = 'VA')
+
+-- NOT is negation
+-- SELECT * FROM customers WHERE NOT (birth_date >= '1990-01-01') OR (points > 1000 AND state = 'VA')
+
+-- above and below is same
+-- SELECT * FROM customers WHERE (birth_date < '1990-01-01') AND (points < 1000 OR state != 'VA')
+SELECT * FROM order_items WHERE order_id = 6 AND (unit_price * quantity > 30)
+
+***********************************************************************************************
+
+USE sql_store;
+
+-- SELECT first_name, (points + 1.04) AS Discount, city FROM customers WHERE points > 1000 OR city = 'orlando'
+-- OR customer_id = 10
+-- above code can be written in cleaner way using IN Operator
+-- SELECT first_name, (points + 1.04) AS Discount, city FROM customers WHERE city IN ('orlando', 'chicago', 'Atlanta')
+
+-- we can also use NOT IN
+SELECT first_name, (points + 1.04) AS Discount, city FROM customers WHERE city NOT IN ('orlando', 'chicago', 'Atlanta')
+
+***********************************************************************************************
+
+-- SELECT  * FROM products WHERE quantity_in_stock IN ('49', '38', '72')
+
+-- SELECT * FrOm products Where unit_price >= '1' AND unit_price <= '2'
+
+-- SELECT * FrOm products Where unit_price BETWEEN '1' AND '2'
+
+-- SELECT * FROM customers WHERE birth_date BETWEEN '1990-01-01' AND '2000-01-01'
+
+-- SELECT * FROM customers WHERE last_name LIKE 'b%'
+
+-- SELECT * FROM customers WHERE (address LIKE '%TRAIL%' OR address LIKE '%avenue%') 
+
+-- SELECT * FROM customers WHERE  phone NOT LIKE '%9'
+-- SELECT * FROM customers WHERE  phone REGEXP '9'
+
+-- SELECT * FROM customers WHERE  phone IS NULL
+
+-- SELECT * FROM customers WHERE  phone IS NOT NULL
+-- SELECT * FROM orders WHERE shipped_date IS NULL AND shipper_id IS NULL
+
+-- SELECT * , quantity * unit_price AS Total_Price
+-- FROM order_items WHERE order_id = '2' ORDER BY Total_price DESC
+
+-- SELECT * FROM customers LIMIT 3
+
+-- SELECT * FROM customers LIMIT 6, 3
+
+-- SELECT * FROM customers ORDER BY points DESC LIMIT 3-- 
+
+***********************************************************************************************
+USE sql_store;
+
+-- SELECT * FROM customers JOIN orders ON customers.customer_id = orders.customer_id
+
+-- This will throw error because customer_id present in both tables
+-- SELECT order_id,customer_id, first_name, last_name FROM customers JOIN orders ON customers.customer_id = orders.customer_id
+
+-- Solution
+-- SELECT order_id, orders.customer_id, first_name, last_name FROM customers JOIN orders ON customers.customer_id = orders.customer_id
+
+SELECT order_id, o.product_id, quantity, o.unit_price FROM order_items o JOIN products p ON o.product_id = p.product_id
