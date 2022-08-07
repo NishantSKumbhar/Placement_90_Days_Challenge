@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 int main(){
-
+    /*
     int a = 10;
     int e, f;
     char b = 'a';
@@ -55,5 +55,26 @@ int main(){
     printf("\nEnter Two Numbers : \n");
     scanf("%d%d",&t,&u);
     printf("Numbers : %d & %d",t,u);
+
+    */
+
+    /*
+    int i = 1;
+    int j;
+    for(i; i < 11; i++){
+        for(j = 1; j <= i; j++){
+            if(i == 5){
+                break;
+            }
+            printf(" * ",i);
+        }
+        printf("\n");
+    }
+
+    */
+    //printf(" %d ",3%3);
+
+    //int arr[10] = {10, 20, 30, 40, 50, 60, 70};
+    //printf(" %d ",arr[-1]);
     return 0;
 }
