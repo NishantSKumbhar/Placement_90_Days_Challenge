@@ -76,5 +76,13 @@ int main(){
 
     //int arr[10] = {10, 20, 30, 40, 50, 60, 70};
     //printf(" %d ",arr[-1]);
+
+    int a = NULL;
+    if(a){
+        printf("YEs");
+    }else{
+        printf("No");
+    }
+
     return 0;
 }
