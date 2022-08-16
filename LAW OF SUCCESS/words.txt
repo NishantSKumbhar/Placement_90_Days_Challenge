@@ -104,3 +104,35 @@ avail : use or take advantage of (an opportunity or available resource).
 seek : 
 	to try to find or get something.
 	एखादी गोष्ट शोधण्याचा किंवा मिळविण्याचा प्रयत्न करणे.
+
+
+labor :verb: labor
+	to work hard at something.
+	एखाद्या गोष्टीवर खूप परिश्रम घेणे.
+	In his labor he has received valuable assitance...
+
+
+deceased :
+	already died.
+	Some of these men are deceased.
+
+remuneration:
+	मानधन वेतन
+	salary, wage, Emolument, remuneration
+	मोबदला
+
+epitomize:
+	एखाद्या गोष्टीचे उत्तम उदाहरण असणे, सार असणे.
+	This building epitomizes modern trends in architecture
+
+
+endeavour:
+	to try hard.
+	खूप प्रयत्न करणे.
+	She endeavoured to finish her work on time
+
+
+merit :
+	to be good enough for something; to deserve.
+	एखाद्या गोष्टीसाठी सुयोग्य असणे; लायक असणे.
+	This suggestion merits further discussion
