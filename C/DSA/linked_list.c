@@ -97,7 +97,7 @@ void display_linked_list(){
 }
 
 
-int menu(){
+char menu(){
     printf("|| ----------------- Linked List ----------------- ||\n");
     char move;
     printf("SELECT THE CORRECT KEY TO PERFORM OPERATIONS : \n");
