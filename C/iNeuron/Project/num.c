@@ -119,6 +119,27 @@ void move_downside(struct board *p, int *lives){
     }
 }
 
+void rules_message(){
+    printf("\n-----------------------------------------------------------------------------------");
+    printf("\n                            NUMBER SHIFTING GAME                                   ");
+    printf("\n-----------------------------------------------------------------------------------");
+
+    printf("\n                              RULES OF THE GAME                                    ");
+
+    printf("\n\t\t WINNING SITUATION :");
+    printf("\n--------+--------+--------+--------+");
+    printf("\n|   1   |    2   |    3   |    4   |");
+    //printf("\n--------+--------+--------+--------+");
+    printf("\n|   5   |    6   |    7   |    8   |");
+    //printf("\n--------+--------+--------+--------+");
+    printf("\n|   9   |   10   |   11   |    12  |");
+    //printf("\n--------+--------+--------+--------+");
+    printf("\n|  13   |   14   |   15   |        |");
+    printf("\n--------+--------+--------+--------+");
+
+
+}
+
 char menu(){
 
 
@@ -136,10 +157,13 @@ int main(){
     char name[50];
     printf("\nENTER YOUR NAME : ");
     fgets(name, 50, stdin);
-
+    system("cls");
     printf("\n WELCOME , %s",name);
     printf("\n HOW TO PLAY GAME  : \n");
 
+    rules_message();
+    system("pause");
+    system("cls");
     struct board * p = create_board();
     print_board(p);
     int  lives = 10;
@@ -183,6 +207,7 @@ int main(){
     //printf("\n\n**** %d",*p->arrow);
     free(p);
     //printf("\n\n**** %d",*p->arrow);
+
     return 0;
 }
 
