@@ -1,0 +1,24 @@
+sudo apt update
+
+sudo apt install mysql-server -y
+
+
+sudo systemctl status mysql
+
+sudo mysql
+
+>>> show databases;
+
+>>> create database name;
+
+>>> use database_name;
+
+>>> create table table_name(
+	id int,
+	name varchar(255)
+	);	
+
+>>> show tables;
+
+>>> describe table_name;
+

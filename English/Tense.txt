@@ -1,0 +1,108 @@
+Tense
+-----------------------------------------------------------------------------------
+PAST								PRESENT                        FUTURE
+-----------------------------------------------------------------------------------
+1 : Definite
+2 : Contineous
+3 : Perfect
+4 : Perfect Contineous
+
+*  S + V + O
+
+-----------------------------------------------------------------------------------
+
+1 : Present Indefinite ( simple ):
+	* work that we do again and again
+	S + V (e/es) + O   ----> Singular    ( I is an Exception)
+	S + V + O   ----> Plural
+
+	I teach English.
+	I teaches English  --> Wrong
+
+	He, She, it   -> es/s
+	They  -> only verb
+
+	She sings a song
+	They go to the Market
+	Mira cooks food
+	Ram and Rohan dance
+
+
+	* In the case of negative
+
+	S + (Helping verb) + not + V1 + O
+	H.V => do / does
+	if S == Singular ---> does
+	if S == Plural  ----> do
+
+	* when we use does/do then we dont use s in verb
+
+	She does not sing a song
+	They do not go the Market
+	Mira does not cook food.
+
+	* In Introgative form
+
+	H.V + S + v1 + O
+
+	Does she sing a song
+	do they go to the market
+
+
+2 : Past Indefinite (simple Past):
+	* in past we repeat
+
+	S + v2 + O
+
+	* for positive -> v2
+	* for interogative -> v1
+	* subject not matter
+	
+	I ate food.
+	You learned english
+	They went to school
+	I read story
+
+
+	* for Negative
+	S + H.V + not + v1 + O
+
+	I did not eat food
+	You did not learn english
+	They did not go to school
+	I did not read story
+
+	* interogative
+
+	Did + S + v1 + O
+
+	Did I eat food
+	Did you learn english
+	Did they go to school
+	Did I read story
+
+	* Second type of Interogative sentence
+	Q.W + H.V + S + v1 + O
+
+	Why did I teach English
+
+	* for the same negative
+	Q.W + H.V + S + not + v1 + O
+
+	Why did I not teach english
+
+	* and with contraction
+
+	Why didn't I teach english
+
+
+3 : Future Indefinite ( simple future)
+
+	S + will/shall + v1 + O
+	I, we ==> shall, will
+
+	I will teach english
+
+	She will sing a song -> she will not sing a song -> will she sing a song
+
+

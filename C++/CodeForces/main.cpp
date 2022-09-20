@@ -1,44 +1,21 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 
 using namespace std;
 
-// void solve(int* r, int* m, int n){
+void solve(double meal_cost, int tip_percent, int tax_percent) {
+	cout<< meal_cost  / 100<<endl;
+	cout<< (meal_cost  / 100 ) * tip_percent<<endl;
 	
-// 	for(i = 0; i < n; i++){
-		
-// 	}
-		
-// }
-
-class Test{
-	int t;
-public:
-	Test(){
-		cout<<"Default Constructor of Test"<<endl;
-	}
-
-	Test(int x){
-		cout<<"Parameterized Constrctor of Test"<<endl;
-		t = x;
-	}
-};
-
-class Main{
-	Test t;
-public:
-	Main():t(10){
-		//t = Test(10);
-	}
-
-};
+	double a = (tax_percent / 100.00);
+	cout<<a<<endl;
+    // float tip = tip_percent * ( meal_cost  / 100);
+    // float tax = (tax_percent / 100) * meal_cost;
+    // float ans = meal_cost+tip+tax;
+    // cout<<round(ans)<<endl;
+}
 
 int main(){
-	// int roll[] = {101, 108, 103, 105};
-	// int marks[] = {70, 80, 40, 90};
-
-	// solve(roll, marks, 4);
-
-	Main m1;
 	
-	return 0;
+	solve(12.00, 20, 8);
+	return 0;	
 }

@@ -1,0 +1,100 @@
+In [2]: from post.models import Post
+
+In [3]: from django.contrib.auth.models import User
+
+In [4]: User.objects.all()
+Out[4]: <QuerySet [<User: admin>, <User: Nishant>, <User: Shubham>, <User: Prasad>, <User: Raj>, <User: Rutwik>]>
+
+In [5]: POst.objects.all()
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+Input In [5], in <module>
+----> 1 POst.objects.all()
+
+NameError: name 'POst' is not defined
+
+In [6]: Post.objects.all()
+Out[6]: <QuerySet [<Post: Time>, <Post: Believe>]>
+
+In [7]: User.objects.first()
+Out[7]: <User: admin>
+
+In [8]: User.objects.filter(username="Nishant")
+Out[8]: <QuerySet [<User: Nishant>]>
+
+In [9]: User.objects.filter(username="Nishant").first()
+Out[9]: <User: Nishant>
+
+In [10]: user = User.objects.filter(username="Nishant").first()
+
+In [11]: user
+Out[11]: <User: Nishant>
+
+In [12]: user.id
+Out[12]: 2
+
+In [13]: user.pk
+Out[13]: 2
+
+In [14]: user = User.objects.get(id=2)
+
+In [15]: user
+Out[15]: <User: Nishant>
+
+In [16]: Post.objects.all()
+Out[16]: <QuerySet [<Post: Time>, <Post: Believe>]>
+
+In [17]: post_1 = Post(title="Blog1", content="First Post Content", author=u
+    ...: ser)
+
+In [18]: post_1
+Out[18]: <Post: Blog1>
+
+In [19]: post_1.save()
+
+In [20]: Post.objects.all()
+Out[20]: <QuerySet [<Post: Time>, <Post: Believe>, <Post: Blog1>]>
+
+In [21]: post_1
+Out[21]: <Post: Blog1>
+
+In [22]: post_2 = Post(title="Blog2", content="Second Post", author=user)
+
+In [23]: post_2.save()
+
+In [24]: post_2
+Out[24]: <Post: Blog2>
+
+In [25]: Post.objects.all()
+Out[25]: <QuerySet [<Post: Time>, <Post: Believe>, <Post: Blog1>, <Post: Blog2>]>
+
+In [26]: post = Post.objects.get(id=1)
+
+In [27]: post
+Out[27]: <Post: Time>
+
+In [28]: post.content
+Out[28]: 'Time is a Master Worker'
+
+In [29]: post.date_posted
+Out[29]: datetime.datetime(2022, 9, 18, 10, 48, 51, tzinfo=datetime.timezone.utc)
+
+In [30]: post.author
+Out[30]: <User: admin>
+
+In [31]: post.author.email
+Out[31]: 'nishantsk210@gmail.com'
+
+In [32]: user.post_set
+Out[32]: <django.db.models.fields.related_descriptors.create_reverse_many_to_one_manager.<locals>.RelatedManager at 0x1fe74381a20>
+
+In [33]: user.post_set.all()
+Out[33]: <QuerySet [<Post: Believe>, <Post: Blog1>, <Post: Blog2>]>
+
+In [34]: user.post_set.create(title="Blog 4", content="jjj")
+Out[34]: <Post: Blog 4>
+
+In [35]: Post.objects.all()
+Out[35]: <QuerySet [<Post: Time>, <Post: Believe>, <Post: Blog1>, <Post: Blog2>, <Post: Blog 4>]>
+
+In [36]: exit()
