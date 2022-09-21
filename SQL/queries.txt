@@ -22,3 +22,26 @@ sudo mysql
 
 >>> describe table_name;
 
+-- select * from customers;
+-- Insert Into customers values(13, 'Rutwik', 'Patil', '2000-03-23', 234-345-3434, '305 Pragati Palace', 'Pune', 'MH', 2000, 'YES', '23', 23);
+
+-- describe customers;
+
+-- show tables;
+
+-- error
+-- INSERT ALL
+-- 	INTO CUSTOMERS VALUES(14, 'Rutwik', 'Patil', '2000-03-23', 234-345-3434, '305 Pragati Palace', 'Pune', 'MH', 2000, 'YES', '23', 23);
+-- 	INTO CUSTOMERS VALUES(15, 'Rutwik', 'Patil', '2000-03-23', 234-345-3434, '305 Pragati Palace', 'Pune', 'MH', 2000, 'YES', '23', 23);
+
+-- SELECT * FROM CUSTOMERS WHERE STATE IN ('VA', 'FL');
+-- SELECT * FROM CUSTOMERS WHERE POINTS BETWEEN 1 AND 1000;
+-- SELECT * FROM CUSTOMERS WHERE CITY LIKE 'P%';
+-- SELECT * FROM customers WHERE CITY LIKE '%S%';
+-- SELECT * FROM CUSTOMERS WHERE CITY LIKE '%E';
+
+-- error
+-- SELECT * FROM CUSTOMERS WHERE STATE LIKE -A;
+
+-- error
+-- SELECT * FROM CUSTOMERS WHERE STATE  LIKE REGEXP 'VA';

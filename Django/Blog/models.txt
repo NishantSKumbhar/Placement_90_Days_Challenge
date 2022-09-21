@@ -98,3 +98,18 @@ In [35]: Post.objects.all()
 Out[35]: <QuerySet [<Post: Time>, <Post: Believe>, <Post: Blog1>, <Post: Blog2>, <Post: Blog 4>]>
 
 In [36]: exit()
+
+
+
+*************************************************************************************************
+
+In [1]: import json
+
+In [2]: from post.models import Post
+
+In [3]: with open("post.json") as f:
+   ...:     posts_json = json.load(f)
+
+In [4]: for post in posts_json:
+   ...:     post = Post(title=post["title"], content=post["content"], author_id=post["user_id"])
+   ...:     post.save()

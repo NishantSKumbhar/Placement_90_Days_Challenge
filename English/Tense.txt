@@ -106,3 +106,17 @@ PAST								PRESENT                        FUTURE
 	She will sing a song -> she will not sing a song -> will she sing a song
 
 
+
+4 : Present contineous Tense:
+	s + is/am/are + (v1 + ing) + o
+
+	You are learning english.
+	Mira is going to school.
+
+	mira is not going to market
+
+	is mira going to school.
+	are you learning english
+
+	what are you learning.
+

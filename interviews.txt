@@ -1,0 +1,4 @@
+1 : Virtusa  : Offline : Worst  (Campus)     :  venue : campus
+2 : Skyline  : offline : Wordt  (off-campus) : Pune
+3 : Umrahme  : Offilen : Worst than Virtusa  (campus)   : venue : campus
+4 : Tejas Network : Offline  (campus) :  venue : Pimpiri Collge 
