@@ -2,69 +2,79 @@
 
 using namespace std;
 
-struct node{
-    int key;
-    node *left;
-    node *right;
 
-    node(int k){
-        key = k;
+struct Node{
+
+    int val;
+    Node * left;
+    Node * right;
+
+    Node(int v){
+        val = v;
         left = right = NULL;
     }
 
+
 };
 
-void inorder(node *r){
+
+void inorder(Node *r){
     if(r){
         inorder(r->left);
-        cout<<r->key<<"  ";
+        cout<<r->val<<"  ";
         inorder(r->right);
     }
 }
-void preorder(node *r){
+
+void preorder(Node *r){
     if(r){
-        cout<<r->key<<"  ";
-        preorder(r->left);
-        preorder(r->right);
+        cout<<r->val<<"  ";
+        inorder(r->left);
+        inorder(r->right);
     }
 }
-
-void postorder(node *r){
+void postorder(Node *r){
     if(r){
-        postorder(r->left);
-        postorder(r->right);
-        cout<<r->key<<"  ";
+        inorder(r->left);
+        inorder(r->right);
+        cout<<r->val<<"  ";
     }
 }
-
-int height(node *r){
-    if(r == NULL){
-        return 0;
+int g = 0;
+int height(Node *r){
+    if(r){
+        g++;
+        height(r->left);
     }
-
-    return (max(height(r->left), height(r->right)))+1;
-}
-
-void at_k_distance(node *r){
-
+    return g;
 }
 int main(){
+    Node *root = new Node(5);
+    root->left = new Node(10);
+    root->right = new Node(34);
+    root->left->left = new Node(3);
+    root->left->right = new Node(23);
+    root->right->left = new Node(343);
+    root->right->right = new Node(100);
+    root->left->left->left = new Node(1000);
+    /*
+                        5
+                 |------|--------|   
+                10              34
+            |----|---|      |----|---|
+            3       23      343     100
+    */
 
-    cout<<"Binary Search Tree"<<endl;
-    node *root = new node(10);
-    root->left = new node(20);
-    root->right = new node(30);
-    root->left->left = new node(40);
-    root->left->right = new node(50);
-    root->right->right = new node(60);
-    cout<<"Inorder : "<<endl;
+    cout<<"Inorder Traversal:"<<endl;
     inorder(root);
-    cout<<"\nPreorder : "<<endl;
+    cout<<"\nPreorder Traversal:"<<endl;
     preorder(root);
-    cout<<"\nPostorder : "<<endl;
+    cout<<"\nPostorder Traversal:"<<endl;
     postorder(root);
-    cout<<"\nHeight : ";
-    int h = height(root);
-    cout<<h<<endl;
+
+    cout<<"\nHeight :"<<height(root)<<endl;
+    
+    
+
     return 0;
 }

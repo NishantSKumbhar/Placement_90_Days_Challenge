@@ -77,6 +77,7 @@ void insert_after_particular(){
 }
 
 
+
 void delete_first_node(){
     if(START == NULL){
         printf("\nLIST IS ALREADY EMPTY");

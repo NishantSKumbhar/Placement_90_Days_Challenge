@@ -5,9 +5,16 @@ Good Afternoon/Morning Sir/Madam,
 	
 	This is NISHANT SANJAY KUMBHAR. I live in PUNE.
 	
+	I am aspiring Software Engineer.
+
 	Currently, I am Pursuing my Bachelore Degree in Computer Engineering from 
 	D. Y. Patil. College From Akurdi,
 
+	I mainly skilled with Python, C,C++, also poficient in datastructure and agorithms.
+
+	I have worked on 3 Projects to date. I recently Participated in coding contest where i secured 2nd place among 150 participants.
+
+	Apart from coding, i enjoy travelling and reading novel
 	
 	Now coming to my strengths I am a self-motivated person. I am eager to
 	learn different things. I always use to keep calm and relaxed during any
