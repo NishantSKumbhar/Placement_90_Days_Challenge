@@ -1,0 +1,4 @@
+This Start of Block chain
+POW and POS
+#include<iostream>using namespace std;int main(){	cout << "Jay Ganesh " << endl;		return 0;}POW and POS
+Helloks sk sdsd From tu*******************************************************POW and POS

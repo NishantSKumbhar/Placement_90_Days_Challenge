@@ -2,20 +2,23 @@
 
 using namespace std;
 
-void solve(double meal_cost, int tip_percent, int tax_percent) {
-	cout<< meal_cost  / 100<<endl;
-	cout<< (meal_cost  / 100 ) * tip_percent<<endl;
-	
-	double a = (tax_percent / 100.00);
-	cout<<a<<endl;
-    // float tip = tip_percent * ( meal_cost  / 100);
-    // float tax = (tax_percent / 100) * meal_cost;
-    // float ans = meal_cost+tip+tax;
-    // cout<<round(ans)<<endl;
-}
 
 int main(){
-	
-	solve(12.00, 20, 8);
+	int n;
+    cin >> n;
+
+    while(n--){
+        string s;
+        cin >> s;
+        n = s.length();
+        if(n > 10){
+            string a1 = s.substr(0, 1);
+            a1 += to_string(n-2);
+            a1 += s[n-1];
+            cout << a1 << endl;
+        }else{
+            cout << s << endl;
+        }
+    }
 	return 0;	
 }

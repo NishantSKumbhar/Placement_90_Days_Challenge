@@ -1,33 +1,35 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main(){
-	int n;
-    cin >> n;
-    while (n--){
-      	string s;
-      	cin >> s;
-      	vector<char> ans;
-      	int i;
-      	for(i = 0; i < s.length(); i++){
-      		if(i % 2 == 0){
-      			ans.push_back(s[i]);
-      		}
-      	}
-
-      	ans.push_back(' ');
-      	ans.push_back(' ');
-      	for(i = 1; i < s.length(); i++){
-      		if(i % 2 != 0){
-      			ans.push_back(s[i]);
-      		}
-      	}
-
-      	for(auto x: ans){
-      		cout<<x;
-      	}
-      	cout<<endl;
-    } 
-	return 0;
+int main() {
+    // your code goes here
+    int T;
+    cin >> T;
+    while(T--){
+        string s;
+        cin >> s;
+        int c = 0;
+        int flag = 0;
+        for(int i = 0; s[i]; i++){
+            if(c > 2){
+                flag = 1;
+                break;
+            }
+            else if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u'){
+                c++;
+            }else{
+                c = 0;
+            }
+            
+            
+        }
+        
+        if(flag){
+            cout << "Happy" << endl;
+        }else{
+            cout << "Sad" << endl;
+        }
+    }
+    return 0;
 }

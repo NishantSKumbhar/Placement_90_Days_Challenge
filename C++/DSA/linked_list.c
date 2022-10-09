@@ -90,10 +90,10 @@ void delete_last_node(){
 	}else{
 		struct Node * t;
 		t = START;
-		while(t->next){
+		while(t->next->next){
 			t = t->next;
 		}
-		t = NULL;
+		t->next = NULL;
 	}
 }
 void showLinkedList(){

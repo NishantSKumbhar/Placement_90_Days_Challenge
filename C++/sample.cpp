@@ -1,14 +1,37 @@
-#include<iostream>
-
+#include<bits/stdc++.h>
 using namespace std;
 
 
 int main(){
-    int num = 100;
+    float num = 100.12;
 
-    for(int i = 1; i*i <= num; i++){
-        cout<<i;
-    }
+    setprecision(6);
+
+    cout <<num ;
 
     return 0;
 }
+
+          #
+
+         ##
+
+        ###
+
+       ####
+
+      #####
+
+     ######
+
+         #
+
+        ##
+
+       ###
+
+      ####
+
+     #####
+
+    ######
