@@ -1,35 +1,21 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
+
+
 int main() {
-    // your code goes here
-    int T;
-    cin >> T;
-    while(T--){
-        string s;
-        cin >> s;
-        int c = 0;
-        int flag = 0;
-        for(int i = 0; s[i]; i++){
-            if(c > 2){
-                flag = 1;
-                break;
-            }
-            else if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u'){
-                c++;
-            }else{
-                c = 0;
-            }
-            
-            
+    int arr[8][8];
+    for(int i = 0; i < 8; i++){
+        for(int j = 0; j < 8; j++){
+            cin >> arr[i][j];
         }
-        
-        if(flag){
-            cout << "Happy" << endl;
-        }else{
-            cout << "Sad" << endl;
+    }
+
+    for(int i = 0; i < 8; i++){
+        for(int j = 0; j < 8; j++){
+            cout << j << "," << i << "  ";
         }
+        cout << endl;
     }
     return 0;
 }
