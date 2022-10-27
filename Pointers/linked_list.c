@@ -1,61 +1,61 @@
-#include<stdio.h>
-#include<stdlib.h>
-struct node{
+#include <stdio.h>
+#include <cstdlib>
+struct Node{
 	int value;
-	struct node *next;
+	struct Node* next;
 
 };
 
-struct node * START  = NULL;
 
-struct node * create_node(){
-	struct node *temp;
-	temp = (struct node *)malloc(sizeof(struct node));
-	return temp;
+struct Node* create_node(){
+	struct Node* n = (struct Node *)malloc(sizeof(struct Node));
+	return n;
+
 }
 
+void insert_at_end(struct Node ** START){
+	struct Node* n = create_node();
+	printf("\nEnter the Value(END) : ");
+	scanf("%d",&n->value);
+	n->next = NULL;
 
-void insert_at_end(){
-	struct node * t;
-	t = create_node();
-	printf("\nEnter the Value : ");
-	scanf("%d",&t->value);
-	t->next = NULL;
-	if(START == NULL){
-		START = t;
+	if(*START == NULL){
+		*START = n;
 	}else{
-		struct node *trav;
-		trav = START;
-		while(trav->next != NULL){
-			trav = trav->next;
+		struct Node* t = *START;
+		while(t->next){
+			t = t->next;
 		}
-		trav->next = t;
+		t->next = n;
 	}
 }
 
-
-void display_linked_list(){
-	struct node *trav;
-	if(START == NULL){
-		printf("Linked List is Empty !");
-	}else{
-		trav = START;
-		while(trav != NULL){
-			printf("--> %d -",trav->value);
-			trav = trav->next;
-		}
+void show(struct Node** START){
+	struct Node* t = *START;
+	while(t){
+		printf("%d --> ",t->value);
+		t = t->next;
 	}
 }
-
+	
 int main(){
-	printf("|| Linked List ||\n");
-	display_linked_list();
-	insert_at_end();
-	display_linked_list();
-	insert_at_end();
-	insert_at_end();
-	insert_at_end();
-	insert_at_end();
-	display_linked_list();
+	struct Node* START1;
+	START1 = NULL;
+	struct Node* START2;
+	START2 = NULL;
+	insert_at_end(&START1);
+	insert_at_end(&START2);
+	insert_at_end(&START1);
+	insert_at_end(&START2);
+	insert_at_end(&START1);
+	insert_at_end(&START2);
+	insert_at_end(&START1);
+	insert_at_end(&START2);
+	if(START1 == NULL){
+		printf("YES");
+	}
+	show(&START1);
+	show(&START2);
+	
 	return 0;
 }

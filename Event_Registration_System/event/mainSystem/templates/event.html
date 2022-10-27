@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+	<h1>{{ event.name }} </h1>
+	<a href="{% url 'EVENT_CONFIRMATION' event.id  %}">Register</a>
+	<p>
+		{{ event.description }}
+	</p>
+	<div>
+		<h2>Event Participants</h2>
+		<div>
+			{% for user in event.participants.all %}
+
+				<div>
+					<strong>{{ user.name }}</strong>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock content %}

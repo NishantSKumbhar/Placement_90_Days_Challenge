@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% if title %}
+		<title>{{ title }}</title>
+	{% else %}
+		<title>Event Registration System</title>
+	{% endif %}
+</head>
+<body>
+	{% include 'navbar.html' %}
+	{% block content %}
+	{% endblock content %}
+</body>
+</html>
