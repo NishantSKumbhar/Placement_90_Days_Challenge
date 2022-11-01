@@ -1,0 +1,69 @@
+{% extends 'courses/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h4 class="text-muted"> ---: “Just one small positive thought in the morning can change your whole day.”  — <i>Dalai Lama</i> :--</h4>
+    
+    <div class="row">
+        <div class="col-4">
+          <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
+            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">New Post</a>
+            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Latest Post</a>
+            <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="tab-content" id="nav-tabContent">
+            
+            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                {% for post in posts %}
+                  <article class="media content-section">
+                      <img class="rounded-circle article-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMaOxNDCUBGGfLgfit11mbUE3B1LIjS2JdHw&usqp=CAU">
+                      <div class="media-body">
+                          <div class="article-metadata">
+                          <a class="mr-2" href="#">{{ post.author }}</a>
+                          <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                          </div>
+                          <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+                          <p class="article-content">{{ post.content }}</p>
+                      </div>
+                  </article>
+                {% endfor %}
+            </div>
+            
+            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+              <div class="content-section">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Blog Post</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Post</button>
+                    </div>
+                </form>
+                
+            </div>
+            </div>
+            
+            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+              <article class="media content-section">
+                <img class="rounded-circle article-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMaOxNDCUBGGfLgfit11mbUE3B1LIjS2JdHw&usqp=CAU">
+                <div class="media-body">
+                    <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ latest.author }}</a>
+                    <small class="text-muted">{{ latest.date_posted|date:"F d, Y" }}</small>
+                    </div>
+                    <h2><a class="article-title" href="#">{{ lastest.title }}</a></h2>
+                    <p class="article-content">{{ latest.content }}</p>
+                </div>
+            </article>
+            </div>
+            
+            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+          
+          </div>
+        </div>
+      </div>
+{% endblock content %}

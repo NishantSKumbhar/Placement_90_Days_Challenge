@@ -1,0 +1,41 @@
+{% extends 'courses/base.html' %}
+
+{% block content %}
+	<div class="row">
+          <div class="col-md-4">
+            
+            <img src="{{ course.imgUrl }}" class="img-fluid" alt="{{ course.courseName }}">
+					</div>
+
+					
+
+           
+            
+            
+         
+          
+          <div class="col-md-8">
+            	<div class="card">
+							  <h5 class="card-header">{{ course.courseName }}</h5>
+							  <div class="card-body">
+							    <h6 class="text-muted">Teacher : {{ course.teacher }}</h6>
+							    
+							   <h6 class="text-muted">Start Date : {{ course.startDate }}</h6>
+							   <h6 class="text-muted">Duration : {{ course.duration }} Months</h6>
+							   <h6 class="text-muted">Timings  : {{ course.dayTime }}</h6>
+							   {% if course.isAvailable %}
+							   		<h6 class="text-muted">Registration : Available</h6>
+							   {% else %}
+							   		<h6 class="text-muted">Registration : Closed</h6>
+							   {% endif %}
+							   	<hr>
+							    <p class="text-muted">{{ course.courseDescription }}</p>
+							    <a href="#" class="btn btn-primary">Enroll</a>
+							   
+								<a href="{% url 'COURSEHOME' %}"><button type="button" class="btn btn-outline-primary">Back</button></a>
+							    
+							  </div>
+							</div>
+          </div>
+  </div>
+{% endblock content %}

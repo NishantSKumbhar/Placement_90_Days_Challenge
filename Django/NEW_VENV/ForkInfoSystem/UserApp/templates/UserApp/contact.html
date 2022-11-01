@@ -1,0 +1,46 @@
+{% extends 'courses/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+	<div class="row">
+        <div class="col-md-6">
+            
+            
+            
+				<h1>Say Hello !</h1>
+				<br/>
+				
+				<p class="text-muted">The beauty of your story is that it’s<br/> going to continue to evolve and your<br/> site can evolve with it. </p>
+				<br/><br/>
+				
+				<h3>nishatsk210@gmail.com</h3>
+				<h2>(+91)9822310562</h2>
+                <img class="img-fluid" src="https://c4.wallpaperflare.com/wallpaper/531/951/621/digital-digital-art-artwork-illustration-minimalism-hd-wallpaper-preview.jpg" >
+					
+	    </div>
+
+					
+
+           
+            
+            
+         
+          
+        <div class="col-md-6">
+            <div class="content-section">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Contact Us</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Submit</button>
+                        
+                    </div>
+                </form>
+                
+            </div>
+            
+        </div>
+  </div>
+{% endblock content %}

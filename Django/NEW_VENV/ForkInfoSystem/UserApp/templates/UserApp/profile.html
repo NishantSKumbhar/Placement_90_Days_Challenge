@@ -1,0 +1,27 @@
+{% extends 'courses/base.html' %}
+<!-- {% load crispy_forms_tags %} -->
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8">
+      <div class="content-section">
+        <div class="media">
+          <img class="rounded-circle account-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMaOxNDCUBGGfLgfit11mbUE3B1LIjS2JdHw&usqp=CAU">
+          <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+
+</div>
+    
+{% endblock content %}

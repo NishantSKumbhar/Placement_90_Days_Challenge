@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.8.2/htmx.min.js" integrity="sha512-u/+x1QX84RlxBQDGK+6yuJHMPVCsp1y5SbkmE+W93se2UOw7t6zVhZy0phD6dlf2fEZs66UmLfO0+Z4GRaDVJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<title>{{ title }}</title>
+</head>
+<body>
+	<h1>Hello</h1>
+	
+	<div id="currency" hx-get="/returnvalue/" hx-trigger="every 2s" hx-swap="innerhtml">
+		{% include 'realtimecurrency/show.html' %}
+	</div>
+
+	
+
+</body>
+</html>
