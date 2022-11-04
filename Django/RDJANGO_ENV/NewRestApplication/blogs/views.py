@@ -23,6 +23,16 @@ def upload_student_info(request):
 	udata = request.data
 	# print(udata)
 	seri = StudentSerializer(data=request.data)
+
+	# this is logic part and best practice is write in serializers.py
+	# if request.data['age'] < 18:
+	# 	return Response(
+	# 		{
+	# 			'status' : 403,
+	# 			'message' : "Age Should not less than 18" 
+	# 		}
+	# 	)
+
 	if not seri.is_valid():
 		print(seri.errors)
 		return Response(
@@ -41,6 +51,62 @@ def upload_student_info(request):
 				'message' : 'Your Data Has been saved successfully'
 			}
 		)
+
+
+@api_view(['PUT'])
+def update_student(request, id):
+	try:
+		std_post = Student.objects.get(id=id)
+		std_seri = StudentSerializer(std_post, data = request.data, partial = True)  # ['PATCH'] just add-> partial = True (it will take previos values, need not to pass whole packet. i.e fields)
+
+
+		if not std_seri.is_valid():
+			print(std_seri.errors)
+			return Response(
+				{
+					'status' : 403,
+					'errors' : std_seri.errors,
+					'message' : "Something Went Wrong" 
+				}
+			)
+		std_seri.save()
+		return Response(
+				{
+					'status' : 200,
+					'payload' : request.data,
+					'message' : 'Your Data Has Updated been saved successfully'
+				}
+			)
+	except Exception as e:
+		print(e)
+		return Response(
+				{
+					'status' : 403,
+					'message' : 'Invalid id'
+				}
+			)
+
+
+@api_view(['DELETE'])
+def delete_student(request, id):
+	try:
+		std = Student.objects.get(id=id)
+		std.delete()
+		return Response(
+				{
+					'status' : 200,
+					'message' : 'Your Data Has Deleted'
+				}
+			)
+	except Exception as e:
+		print(e)
+		return Response(
+				{
+					'status' : 403,
+					'message' : 'Invalid id'
+				}
+			)
+
 
 @api_view()  
 def info(request):
