@@ -44,3 +44,10 @@ def profile(request):
         'title' : 'Profile'
     }
     return render(request, 'UserApp/profile.html', context)
+
+
+def student_operations(request):
+    context = {
+        'title' : 'Student | Operations'
+    }
+    return render(request, 'UserApp/student_opr.html', context)

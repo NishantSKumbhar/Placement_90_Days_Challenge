@@ -27,5 +27,6 @@ urlpatterns = [
     path('profile/', UserViews.profile, name="PROFILE"),
     path('login/', AuthViews.LoginView.as_view(template_name="UserApp/login.html"), name="LOGIN"),
     path('logout/', AuthViews.LogoutView.as_view(template_name='UserApp/logout.html') , name='LOGOUT'),
+    path('student_operations/', UserViews.student_operations, name="STUDENTOPR"),
     
 ]

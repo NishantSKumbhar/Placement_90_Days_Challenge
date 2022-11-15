@@ -1,0 +1,1579 @@
+{% load static %}
+
+<textarea style="display: none;" name="{{ widget.name }}" id="{{ widget.name }}-tiptap-editor-textarea" {%
+    include "django/forms/widgets/attrs.html" %}>
+    {% if widget.value %}{{ widget.value }}{% endif %}
+</textarea>
+
+<div class="the-editor-area " style="min-width: {{ widget.config.width }}; min-height: {{ widget.config.height }}">
+    <div class="menubar" id="{{ widget.name }}-menubar">
+        {% if 'bold' in widget.config.extensions %}
+        <button id="{{ widget.name }}-bold">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="14"
+                viewBox="0 0 12 14">
+                <path
+                    d="M10.52 7.438c-.353-.547-.823-1.003-1.375-1.336.277-.575.422-1.206.422-1.85C9.567 1.907 7.67 0 5.339 0H0v14h6.972c2.331 0 4.228-1.907 4.228-4.252 0-.823-.235-1.621-.68-2.31zM2.991 5.496V3.008H5.34c.682 0 1.237.558 1.237 1.244 0 .686-.555 1.244-1.237 1.244H2.99zM8.21 9.748c0 .686-.555 1.244-1.237 1.244h-3.98V8.504h3.98c.682 0 1.237.558 1.237 1.244z" />
+            </svg>
+        </button>
+        {% endif %}
+
+        {% if 'italic' in widget.config.extensions %}
+        <button id="{{ widget.name }}-italic">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="14" viewBox="0 0 10 14">
+                <path
+                    d="M4.758 0L4.758 2.325 6.754 2.325 4.962 11.675 2.8 11.675 2.8 14 9.242 14 9.242 11.675 7.246 11.675 9.038 2.325 11.2 2.325 11.2 0z"
+                    transform="translate(-2)" />
+            </svg>
+        </button>
+        {% endif %}
+
+        {% if 'underline' in widget.config.extensions %}
+        <button id="{{ widget.name }}-underline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                <path
+                    d="M16.666 15.758V18H.9v-2.242h15.766zM5.392 0v2.24H4.266v4.518c0 2.49 2.027 4.516 4.517 4.516S13.3 9.248 13.3 6.758V2.24h-1.126V0h4.492v2.24h-1.125v4.518c0 3.732-3.026 6.757-6.758 6.757l-.237-.004c-3.622-.125-6.52-3.1-6.52-6.753V2.24H.9V0h4.492z"
+                    transform="translate(-230 -694) translate(214 628) translate(1 50) translate(15 16)" />
+            </svg>
+        </button>
+        {% endif %}
+
+        {% if 'strikethrough' in widget.config.extensions %}
+        <button id="{{ widget.name }}-strike">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M23,12V14H18.61C19.61,16.14 19.56,22 12.38,22C4.05,22.05 4.37,15.5 4.37,15.5L8.34,15.55C8.37,18.92 11.5,18.92 12.12,18.88C12.76,18.83 15.15,18.84 15.34,16.5C15.42,15.41 14.32,14.58 13.12,14H1V12H23M19.41,7.89L15.43,7.86C15.43,7.86 15.6,5.09 12.15,5.08C8.7,5.06 9,7.28 9,7.56C9.04,7.84 9.34,9.22 12,9.88H5.71C5.71,9.88 2.22,3.15 10.74,2C19.45,0.8 19.43,7.91 19.41,7.89Z" />
+            </svg>
+        </button>
+        {% endif %}
+
+        {% if 'strikethrough' in widget.config.extensions or 'underline' in widget.config.extensions or 'italic' in widget.config.extensions or 'bold' in widget.config.extensions %}
+        <div class="spacer"></div>
+        {% endif %}
+
+        {% if 'h1' in widget.config.extensions %}
+        <button id="{{ widget.name }}-h1">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path d="M3,4H5V10H9V4H11V18H9V12H5V18H3V4M14,18V16H16V6.31L13.5,7.75V5.44L16,4H18V16H20V18H14Z" />
+            </svg>
+        </button>
+        {% endif %}
+
+        {% if 'h2' in widget.config.extensions %}
+        <button id="{{ widget.name }}-h2">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M3,4H5V10H9V4H11V18H9V12H5V18H3V4M21,18H15A2,2 0 0,1 13,16C13,15.47 13.2,15 13.54,14.64L18.41,9.41C18.78,9.05 19,8.55 19,8A2,2 0 0,0 17,6A2,2 0 0,0 15,8H13A4,4 0 0,1 17,4A4,4 0 0,1 21,8C21,9.1 20.55,10.1 19.83,10.83L15,16H21V18Z" />
+            </svg>
+        </button>
+        {% endif %}
+
+        {% if 'h3' in widget.config.extensions %}
+        <button id="{{ widget.name }}-h3">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M3,4H5V10H9V4H11V18H9V12H5V18H3V4M15,4H19A2,2 0 0,1 21,6V16A2,2 0 0,1 19,18H15A2,2 0 0,1 13,16V15H15V16H19V12H15V10H19V6H15V7H13V6A2,2 0 0,1 15,4Z" />
+            </svg>
+        </button>
+        {% endif %}
+
+        {% if 'h4' in widget.config.extensions %}
+        <button id="{{ widget.name }}-h4">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M3,4H5V10H9V4H11V18H9V12H5V18H3V4M18,18V13H13V11L18,4H20V11H21V13H20V18H18M18,11V7.42L15.45,11H18Z" />
+            </svg>
+        </button>
+        {% endif %}
+
+        {% if 'h5' in widget.config.extensions %}
+        <button id="{{ widget.name }}-h5">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M3,4H5V10H9V4H11V18H9V12H5V18H3V4M15,4H20V6H15V10H17A4,4 0 0,1 21,14A4,4 0 0,1 17,18H15A2,2 0 0,1 13,16V15H15V16H17A2,2 0 0,0 19,14A2,2 0 0,0 17,12H15A2,2 0 0,1 13,10V6A2,2 0 0,1 15,4Z" />
+            </svg>
+        </button>
+        {% endif %}
+
+        {% if 'h6' in widget.config.extensions %}
+        <button id="{{ widget.name }}-h6">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M3,4H5V10H9V4H11V18H9V12H5V18H3V4M15,4H19A2,2 0 0,1 21,6V7H19V6H15V10H19A2,2 0 0,1 21,12V16A2,2 0 0,1 19,18H15A2,2 0 0,1 13,16V6A2,2 0 0,1 15,4M15,12V16H19V12H15Z" />
+            </svg>
+        </button>
+        {% endif %}
+
+        {% if 'h1' in widget.config.extensions or 'h2' in widget.config.extensions or 'h3' in widget.config.extensions or 'h4' in widget.config.extensions or 'h5' in widget.config.extensions or 'h6' in widget.config.extensions %}
+        <div class="spacer"></div>
+        {% endif %}
+
+        {% if 'textAlign' in widget.config.extensions %}
+        <button id="{{ widget.name }}-alignLeft">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"
+                viewBox="0 0 14 14">
+                <path
+                    d="M13.59 10.544c.226 0 .41.183.41.41v2.636c0 .226-.184.41-.41.41H.41c-.226 0-.41-.184-.41-.41v-2.636c0-.227.184-.41.41-.41zM7 5.272c.227 0 .41.184.41.41v2.636c0 .226-.183.41-.41.41H.41c-.226 0-.41-.184-.41-.41V5.682c0-.226.184-.41.41-.41zM13.59 0c.226 0 .41.184.41.41v2.636c0 .227-.184.41-.41.41H.41c-.226 0-.41-.183-.41-.41V.41C0 .184.184 0 .41 0z" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-alignCenter">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="15"
+                viewBox="0 0 14 15">
+                <path
+                    d="M13.595 10.542c.227 0 .41.184.41.41v2.638c0 .226-.183.41-.41.41H.41c-.226 0-.41-.184-.41-.41v-2.637c0-.227.184-.41.41-.41zm-3.091-5.27c.227 0 .41.183.41.41v2.636c0 .227-.183.41-.41.41H3.912c-.227 0-.41-.183-.41-.41V5.682c0-.227.183-.41.41-.41zM13.595 0c.227 0 .41.184.41.41v2.637c0 .227-.183.41-.41.41H.41c-.226 0-.41-.183-.41-.41V.41C0 .184.184 0 .41 0z" />
+            </svg>
+        </button>
+        <button id="{{ widget.name }}-alignRight">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"
+                viewBox="0 0 14 14">
+                <path
+                    d="M13.59 10.544c.226 0 .41.183.41.41v2.636c0 .226-.184.41-.41.41H.41c-.226 0-.41-.184-.41-.41v-2.636c0-.227.184-.41.41-.41zm0-5.272c.226 0 .41.184.41.41v2.636c0 .226-.184.41-.41.41H7c-.227 0-.41-.184-.41-.41V5.682c0-.226.183-.41.41-.41zm0-5.272c.226 0 .41.184.41.41v2.636c0 .227-.184.41-.41.41H.41c-.226 0-.41-.183-.41-.41V.41C0 .184.184 0 .41 0z" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-alignJustify">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="15"
+                viewBox="0 0 14 15">
+                <path
+                    d="M13.59 10.538c.226 0 .41.184.41.41v2.636c0 .227-.184.41-.41.41H.41c-.226 0-.41-.183-.41-.41V10.95c0-.227.184-.41.41-.41zm0-5.269c.226 0 .41.184.41.41v2.636c0 .227-.184.41-.41.41H.41c-.226 0-.41-.183-.41-.41V5.68c0-.226.184-.41.41-.41zm0-5.269c.226 0 .41.184.41.41v2.636c0 .227-.184.41-.41.41H.41c-.226 0-.41-.183-.41-.41V.41C0 .184.184 0 .41 0z" />
+            </svg>
+        </button>
+
+        <div class="spacer"></div>
+        {% endif %}
+
+        {% if 'indent' in widget.config.extensions%}
+        <button id="{{ widget.name }}-indent">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path d="M11,13H21V11H11M11,9H21V7H11M3,3V5H21V3M11,17H21V15H11M3,8V16L7,12M3,21H21V19H3V21Z" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-outdent">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path d="M11,13H21V11H11M11,9H21V7H11M3,3V5H21V3M3,21H21V19H3M3,12L7,16V8M11,17H21V15H11V17Z" />
+            </svg>
+        </button>
+
+        <div class="spacer"></div>
+        {% endif %}
+
+        {% if 'table' in widget.config.extensions%}
+        <button id="{{ widget.name }}-addTable">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M12.35 20H10V17H12.09C12.21 16.28 12.46 15.61 12.81 15H10V12H14V13.54C14.58 13 15.25 12.61 16 12.35V12H20V12.35C20.75 12.61 21.42 13 22 13.54V5C22 3.9 21.1 3 20 3H4C2.9 3 2 3.9 2 5V20C2 21.1 2.9 22 4 22H13.54C13 21.42 12.61 20.75 12.35 20M16 7H20V10H16V7M10 7H14V10H10V7M8 20H4V17H8V20M8 15H4V12H8V15M8 10H4V7H8V10M17 14H19V17H22V19H19V22H17V19H14V17H17V14" />
+            </svg>
+
+            <div class="{{ widget.name }}-table-config table-config display-flex">
+                <div class="inputs-container display-flex flex-align-center flex-direction-column">
+                    <div class="display-flex flex-content-space-between">
+                        <label for="x" class="text-black">
+                            {{ widget.config.translations.rows }}
+                        </label>
+                        <span class="text-black" style="transform: scale(1.5)">
+                            &nbsp; x &nbsp;
+                        </span>
+                        <label for="y" class="text-black">
+                            {{ widget.config.translations.columns }}
+                        </label>
+                    </div>
+                    <div>
+                        <input type="number" name="X" id="{{ widget.name }}-x" placeholder="Zeilen" min="0" max="10"
+                            value="3" class="text-black table-dimension-input">
+                        <span>x</span>
+                        <input type="number" name="Y" id="{{ widget.name }}-y" placeholder="Spalten" min="0" max="10"
+                            value="3" class="text-black table-dimension-input">
+                    </div>
+                </div>
+                <div class="{{ widget.name }}-add-table-button add-table-button">
+                    {{ widget.config.translations.addTable }}
+                </div>
+            </div>
+        </button>
+
+        <button id="{{ widget.name }}-deleteTable">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M12.35 20H10V17H12.09C12.21 16.28 12.46 15.61 12.81 15H10V12H14V13.54C14.58 13 15.25 12.61 16 12.35V12H20V12.35C20.75 12.61 21.42 13 22 13.54V5C22 3.9 21.1 3 20 3H4C2.9 3 2 3.9 2 5V20C2 21.1 2.9 22 4 22H13.54C13 21.42 12.61 20.75 12.35 20M16 7H20V10H16V7M10 7H14V10H10V7M8 20H4V17H8V20M8 15H4V12H8V15M8 10H4V7H8V10M14.46 15.88L15.88 14.46L18 16.59L20.12 14.46L21.54 15.88L19.41 18L21.54 20.12L20.12 21.54L18 19.41L15.88 21.54L14.46 20.12L16.59 18L14.46 15.88" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-addColumnBefore">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M13,2A2,2 0 0,0 11,4V20A2,2 0 0,0 13,22H22V2H13M20,10V14H13V10H20M20,16V20H13V16H20M20,4V8H13V4H20M9,11H6V8H4V11H1V13H4V16H6V13H9V11Z" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-addColumnAfter">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M11,2A2,2 0 0,1 13,4V20A2,2 0 0,1 11,22H2V2H11M4,10V14H11V10H4M4,16V20H11V16H4M4,4V8H11V4H4M15,11H18V8H20V11H23V13H20V16H18V13H15V11Z" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-deleteColumn">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M4,2H11A2,2 0 0,1 13,4V20A2,2 0 0,1 11,22H4A2,2 0 0,1 2,20V4A2,2 0 0,1 4,2M4,10V14H11V10H4M4,16V20H11V16H4M4,4V8H11V4H4M17.59,12L15,9.41L16.41,8L19,10.59L21.59,8L23,9.41L20.41,12L23,14.59L21.59,16L19,13.41L16.41,16L15,14.59L17.59,12Z" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-addRowBefore">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M22,14A2,2 0 0,0 20,12H4A2,2 0 0,0 2,14V21H4V19H8V21H10V19H14V21H16V19H20V21H22V14M4,14H8V17H4V14M10,14H14V17H10V14M20,14V17H16V14H20M11,10H13V7H16V5H13V2H11V5H8V7H11V10Z" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-addRowAfter">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M22,10A2,2 0 0,1 20,12H4A2,2 0 0,1 2,10V3H4V5H8V3H10V5H14V3H16V5H20V3H22V10M4,10H8V7H4V10M10,10H14V7H10V10M20,10V7H16V10H20M11,14H13V17H16V19H13V22H11V19H8V17H11V14Z" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-deleteRow">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M9.41,13L12,15.59L14.59,13L16,14.41L13.41,17L16,19.59L14.59,21L12,18.41L9.41,21L8,19.59L10.59,17L8,14.41L9.41,13M22,9A2,2 0 0,1 20,11H4A2,2 0 0,1 2,9V6A2,2 0 0,1 4,4H20A2,2 0 0,1 22,6V9M4,9H8V6H4V9M10,9H14V6H10V9M16,9H20V6H16V9Z" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-mergeCells">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M5,10H3V4H11V6H5V10M19,18H13V20H21V14H19V18M5,18V14H3V20H11V18H5M21,4H13V6H19V10H21V4M8,13V15L11,12L8,9V11H3V13H8M16,11V9L13,12L16,15V13H21V11H16Z" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-splitCell">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M19 14H21V20H3V14H5V18H19V14M3 4V10H5V6H19V10H21V4H3M11 11V13H8V15L5 12L8 9V11H11M16 11V9L19 12L16 15V13H13V11H16Z" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-toggleHeaderColumn">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M8,2H16A2,2 0 0,1 18,4V20A2,2 0 0,1 16,22H8A2,2 0 0,1 6,20V4A2,2 0 0,1 8,2M8,10V14H16V10H8M8,16V20H16V16H8M8,4V8H16V4H8Z" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-toggleHeaderRow">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M22,14A2,2 0 0,1 20,16H4A2,2 0 0,1 2,14V10A2,2 0 0,1 4,8H20A2,2 0 0,1 22,10V14M4,14H8V10H4V14M10,14H14V10H10V14M16,14H20V10H16V14Z" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-toggleHeaderCell">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M3,5H15A2,2 0 0,1 17,7V17A2,2 0 0,1 15,19H3A2,2 0 0,1 1,17V7A2,2 0 0,1 3,5M3,9V12H8V9H3M10,9V12H15V9H10M3,14V17H8V14H3M10,14V17H15V14H10M23,14V7H19V9H21V12H19V14H23Z" />
+            </svg>
+        </button>
+
+        <button id="{{ widget.name }}-toggleTableBorders">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M21,19A1,1 0 0,1 20,20H19V18H21V19M15,20V18H17V20H15M11,20V18H13V20H11M7,20V18H9V20H7M4,20A1,1 0 0,1 3,19V18H5V20H4M19,4H5A2,2 0 0,0 3,6V8H5L11,8H13L19,8H21V6C21,4.89 20.11,4 19,4M5,14H3V16H5V14M5,10H3V12H5V10M21,10H19V12H21V10M21,14H19V16H21V14M11,16V14H13V16H11M11,12V10H13V12H11" />
+            </svg>
+        </button>
+
+        <div class="spacer"></div>
+        {% endif %}
+
+        {% if 'bulletList' in widget.config.extensions %}
+        <button id="{{ widget.name }}-bulletList">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                <path
+                    d="M13.59 10.542c.198 0 .363.141.402.328l.008.083v2.637c0 .198-.14.363-.327.402L13.59 14H5.31c-.198 0-.364-.14-.402-.328L4.9 13.59v-2.637c0-.199.14-.364.327-.402l.083-.009h8.28zm-10.5 0c.198 0 .363.141.402.328l.008.083v2.637c0 .198-.14.363-.328.402L3.09 14H.41c-.198 0-.363-.14-.402-.328L0 13.59v-2.637c0-.199.14-.364.327-.402l.083-.009h2.68zm10.5-5.27c.198 0 .363.14.402.327l.008.083v2.636c0 .199-.14.364-.327.402l-.083.009H5.31c-.198 0-.364-.14-.402-.328L4.9 8.318V5.682c0-.199.14-.364.327-.402l.083-.009h8.28zm-10.5 0c.198 0 .363.14.402.327l.008.083v2.636c0 .199-.14.364-.328.402l-.082.009H.41c-.198 0-.363-.14-.402-.328L0 8.318V5.682c0-.199.14-.364.327-.402L.41 5.27h2.68zM13.59 0c.198 0 .363.14.402.328L14 .41v2.637c0 .199-.14.364-.327.402l-.083.009H5.31c-.198 0-.364-.141-.402-.328L4.9 3.047V.41c0-.198.14-.363.327-.402L5.31 0h8.28zM3.09 0c.198 0 .363.14.402.328L3.5.41v2.637c0 .199-.14.364-.328.402l-.082.009H.41c-.198 0-.363-.141-.402-.328L0 3.047V.41C0 .212.14.047.327.008L.41 0h2.68z" />
+            </svg>
+        </button>
+        {% endif %}
+
+        {% if 'orderedList' in widget.config.extensions %}
+        <button id="{{ widget.name }}-orderedList">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                <path
+                    d="M13.59 10.542c.198 0 .363.141.402.328l.008.083v2.637c0 .198-.14.363-.327.402L13.59 14H3.91c-.198 0-.363-.14-.402-.328L3.5 13.59v-2.637c0-.199.14-.364.327-.402l.083-.009h9.68zm-12.546.003c.294 0 .537.065.702.19.234.174.349.405.349.708.002.088-.011.414-.288.625-.04.031-.078.056-.119.078.156.07.345.191.423.523.067.26.016.65-.251.922-.273.27-.716.31-.957.31-.16 0-.319-.018-.457-.05-.076-.015-.111-.024-.164-.045-.08-.03-.135-.1-.15-.181l-.003-.063.011-.14c.006-.074.045-.141.107-.182.062-.042.14-.052.21-.028.3.099.561.1.725-.006.125-.082.185-.194.181-.341 0-.14-.053-.234-.171-.309-.046-.028-.165-.078-.418-.078-.111 0-.206-.075-.235-.177l-.009-.064v-.106c0-.13.104-.238.234-.241.162-.006.449-.038.554-.202.044-.07.052-.22.013-.303-.054-.118-.154-.186-.305-.207-.043-.007-.08-.01-.117-.01-.104 0-.218.023-.357.073-.071.025-.15.016-.214-.026-.047-.031-.082-.077-.098-.13l-.01-.056-.01-.142c-.007-.111.064-.214.172-.246.204-.062.436-.096.652-.096zM13.59 5.27c.198 0 .363.14.402.328l.008.083v2.636c0 .199-.14.364-.327.402l-.083.009H3.91c-.198 0-.363-.14-.402-.328L3.5 8.318V5.682c0-.199.14-.364.327-.402l.083-.009h9.68zm-12.456-.02c.2 0 .37.034.503.102.239.126.39.335.44.604.123.6-.24 1.112-.691 1.67-.082.103-.155.192-.217.265l-.06.067h.77c.112 0 .205.076.234.178l.008.064v.125c0 .111-.075.205-.177.233l-.064.009H.41c-.11 0-.204-.076-.232-.178l-.01-.064V8.09c0-.068.03-.133.08-.179.037-.034.083-.082.143-.15l.066-.076.403-.482c.523-.63.52-.922.46-1.106-.04-.103-.118-.171-.232-.197-.16-.04-.28-.014-.47.085-.071.038-.156.037-.227-.001C.338 5.954.3 5.907.28 5.85l-.013-.058-.016-.16c-.01-.11.056-.214.16-.25.239-.086.496-.133.724-.133zM13.59 0c.198 0 .363.14.402.328L14 .41v2.637c0 .199-.14.364-.327.402l-.083.009H3.91c-.198 0-.363-.141-.402-.328L3.5 3.047V.41c0-.198.14-.363.327-.402L3.91 0h9.68zM1.122 0c.11 0 .204.075.232.177l.009.064v2.794c0 .11-.075.204-.177.233l-.064.008h-.25c-.11 0-.204-.075-.232-.177l-.009-.064V.946l-.147.129c-.051.045-.12.066-.187.058C.25 1.127.209 1.109.174 1.08l-.046-.05-.084-.12c-.06-.084-.057-.195 0-.277L.084.59.71.058c.03-.025.064-.043.1-.051L.866 0h.256z" />
+            </svg>
+        </button>
+        {% endif %}
+
+        {% if 'orderedList' in widget.config.extensions or 'bulletList' in widget.config.extensions %}
+        <div class="spacer"></div>
+        {% endif %}
+
+        {% if 'clearFormat' in widget.config.extensions %}
+        <button id="{{ widget.name }}-clearFormat">
+            <svg style="width:18px;height:18px" viewBox="0 0 24 24">
+                <path
+                    d="M6,5V5.18L8.82,8H11.22L10.5,9.68L12.6,11.78L14.21,8H20V5H6M3.27,5L2,6.27L8.97,13.24L6.5,19H9.5L11.07,15.34L16.73,21L18,19.73L3.55,5.27L3.27,5Z" />
+            </svg>
+        </button>
+        {% endif %}
+
+        {% if 'jinjaSyntaxHighlight' in widget.config.extensions %}
+        <button id="{{ widget.name }}-jinja-highlight" class="is-active">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                    d="M8,3A2,2 0 0,0 6,5V9A2,2 0 0,1 4,11H3V13H4A2,2 0 0,1 6,15V19A2,2 0 0,0 8,21H10V19H8V14A2,2 0 0,0 6,12A2,2 0 0,0 8,10V5H10V3M16,3A2,2 0 0,1 18,5V9A2,2 0 0,0 20,11H21V13H20A2,2 0 0,0 18,15V19A2,2 0 0,1 16,21H14V19H16V14A2,2 0 0,1 18,12A2,2 0 0,1 16,10V5H14V3H16Z" />
+            </svg>
+        </button>
+        {% endif %}
+
+        <button id="{{ widget.name }}-spellcheck">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path d="M21.59,11.59L13.5,19.68L9.83,16L8.42,17.41L13.5,22.5L23,13M6.43,11L8.5,5.5L10.57,11M12.45,16H14.54L9.43,3H7.57L2.46,16H4.55L5.67,13H11.31L12.45,16Z" />
+            </svg>
+        </button>
+
+        {% for custom_extension in widget.config.custom_extensions %}
+            <div class="spacer"></div>
+            {% if custom_extension.toolbar_include %}
+                {% include custom_extension.toolbar_include %}
+            {% endif %}
+        {% endfor %}
+
+        <div class="spacer not-saved-text-spacer" id="{{ widget.name }}-not-saved-warning-spacer"></div>
+
+        {% if widget.config.unsavedChangesWarningText %}
+        <span class="not-saved-text" id="{{ widget.name }}-not-saved-warning">
+            {{ widget.config.unsavedChangesWarningText }}
+        </span>
+        {% endif %}
+
+    </div>
+
+    <div class="editor-content-rendered {% if 'jinjaSyntaxHighlight' in widget.config.extensions %} jinjaSyntaxHighlightActivated {% endif %}" name="{{ widget.name }}" id="{{ widget.name }}-tiptap-editor-div" data-tiptap="{{ widget.value }}"></div>
+</div>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script type="module">
+    // MIT License
+
+    // Copyright (c) 2020, überdosis GbR
+
+    // Permission is hereby granted, free of charge, to any person obtaining a copy
+    // of this software and associated documentation files (the "Software"), to deal
+    // in the Software without restriction, including without limitation the rights
+    // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    // copies of the Software, and to permit persons to whom the Software is
+    // furnished to do so, subject to the following conditions:
+
+    // The above copyright notice and this permission notice shall be included in all
+    // copies or substantial portions of the Software.
+
+    // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    // SOFTWARE.
+
+    import { TextSelection, AllSelection, Plugin, PluginKey } from 'https://cdn.skypack.dev/pin/prosemirror-state@v1.3.4-VDZSfZg19RtsX2tM1mcd/mode=imports,min/optimized/prosemirror-state.js'
+    import { Editor, Extension, Node, mergeAttributes, getExtensionField, callOrReturn, findParentNodeClosestToPos } from 'https://cdn.skypack.dev/pin/@tiptap/core@v2.0.0-beta.159-zg7AQZ0AfBHbsdBMwSSZ/mode=imports,min/optimized/@tiptap/core.js'
+    import Dropcursor from 'https://cdn.skypack.dev/pin/@tiptap/extension-dropcursor@v2.0.0-beta.25-7xQ8TXtAG5T9q2CJ0WeB/mode=imports,min/optimized/@tiptap/extension-dropcursor.js';
+    import Gapcursor from 'https://cdn.skypack.dev/pin/@tiptap/extension-gapcursor@v2.0.0-beta.33-GPQiz2ha0jz8cKAJ0GMR/mode=imports,min/optimized/@tiptap/extension-gapcursor.js'
+    import History from 'https://cdn.skypack.dev/pin/@tiptap/extension-history@v2.0.0-beta.21-b5Pv8fsVQodpZ49hJ4L3/mode=imports,min/optimized/@tiptap/extension-history.js'
+    import Document from 'https://cdn.skypack.dev/pin/@tiptap/extension-document@v2.0.0-beta.15-I7mqrlolTsdSfK9CdpmR/mode=imports,min/optimized/@tiptap/extension-document.js'
+    import Paragraph from 'https://cdn.skypack.dev/pin/@tiptap/extension-paragraph@v2.0.0-beta.23-2zLt9EY0emEA53PIlBkx/mode=imports,min/optimized/@tiptap/extension-paragraph.js'
+    import Text from 'https://cdn.skypack.dev/pin/@tiptap/extension-text@v2.0.0-beta.15-M0g210eDf0ggiY6zRQbW/mode=imports,min/optimized/@tiptap/extension-text.js'
+
+
+    // {% if 'bold' in widget.config.extensions %}
+    import Bold from 'https://cdn.skypack.dev/pin/@tiptap/extension-bold@v2.0.0-beta.25-IkL8U1M6SyMaJEf6wzkW/mode=imports,min/optimized/@tiptap/extension-bold.js'
+    // {% endif %}
+
+    // {% if 'italic' in widget.config.extensions %}
+    import Italic from 'https://cdn.skypack.dev/pin/@tiptap/extension-italic@v2.0.0-beta.25-GOFQ6oD8eyLQKj5VLlkg/mode=imports,min/optimized/@tiptap/extension-italic.js'
+    // {% endif %}
+
+    // import Code from 'https://cdn.skypack.dev/pin/@tiptap/extension-code@v2.0.0-beta.26-aSTkOzTCa8i4mLZ3w2fk/mode=imports,min/optimized/@tiptap/extension-code.js'
+    // import CodeBlock from 'https://cdn.skypack.dev/pin/@tiptap/extension-code-block@v2.0.0-beta.33-NtnQ6OAzwWnG18TG1MXY/mode=imports,min/optimized/@tiptap/extension-code-block.js'
+
+    // {% if 'h1' in widget.config.extensions or 'h2' in widget.config.extensions or 'h3' in widget.config.extensions or 'h4' in widget.config.extensions or 'h5' in widget.config.extensions or 'h6' in widget.config.extensions %}
+    import Heading from 'https://cdn.skypack.dev/pin/@tiptap/extension-heading@v2.0.0-beta.24-xAHWOvpzCa0ZrOegxxsW/mode=imports,min/optimized/@tiptap/extension-heading.js'
+    // {% endif %}
+
+    // {% if 'hardBreak' in widget.config.extensions %}
+    import HardBreak from 'https://cdn.skypack.dev/pin/@tiptap/extension-hard-break@v2.0.0-beta.30-jEJqO4wWcaudSBWqGtd1/mode=imports,min/optimized/@tiptap/extension-hard-break.js'
+    // {% endif %}
+
+    // {% if 'strikethrough' in widget.config.extensions %}
+    import Strike from 'https://cdn.skypack.dev/pin/@tiptap/extension-strike@v2.0.0-beta.27-OKc3MqMNQsl0qFeEN4sR/mode=imports,min/optimized/@tiptap/extension-strike.js'
+    // {% endif %}
+
+    // import Blockquote from 'https://cdn.skypack.dev/pin/@tiptap/extension-blockquote@v2.0.0-beta.26-6e17ONsdCTygaavisdoE/mode=imports,min/optimized/@tiptap/extension-blockquote.js'
+    // import HorizontalRule from 'https://cdn.skypack.dev/pin/@tiptap/extension-horizontal-rule@v2.0.0-beta.30-4uJey1uqyFrgBYDqyL02/mode=imports,min/optimized/@tiptap/extension-horizontal-rule.js'
+
+    // {% if 'bulletList' in widget.config.extensions or 'orderedList' in widget.config.extensions %}
+    import ListItem from 'https://cdn.skypack.dev/pin/@tiptap/extension-list-item@v2.0.0-beta.20-wfRSXlNYKX0NSsFKXmsF/mode=imports,min/optimized/@tiptap/extension-list-item.js'
+    // {% endif %}
+
+    // {% if 'bulletList' in widget.config.extensions %}
+    import BulletList from 'https://cdn.skypack.dev/pin/@tiptap/extension-bullet-list@v2.0.0-beta.26-7DRgHXKR71P5aGd8LvD2/mode=imports,min/optimized/@tiptap/extension-bullet-list.js'
+    // {% endif %}
+
+    // {% if 'orderedList' in widget.config.extensions %}
+    import OrderedList from 'https://cdn.skypack.dev/pin/@tiptap/extension-ordered-list@v2.0.0-beta.27-6HypCLB0J5kSSot9JK4C/mode=imports,min/optimized/@tiptap/extension-ordered-list.js'
+    // {% endif %}
+
+    // {% if 'underline' in widget.config.extensions %}
+    import Underline from 'https://cdn.skypack.dev/pin/@tiptap/extension-underline@v2.0.0-beta.22-vLBrdhb8ooIsLVnAbR3c/mode=imports,min/optimized/@tiptap/extension-underline.js'
+    // {% endif %}
+
+    // {% if 'textAlign' in widget.config.extensions %}
+    import TextAlign from 'https://cdn.skypack.dev/pin/@tiptap/extension-text-align@v2.0.0-beta.29-ZDt0rpAmbxTao4Fy0FDa/mode=imports,min/optimized/@tiptap/extension-text-align.js'
+    // {% endif %}
+
+    // {% if 'table' in widget.config.extensions%}
+    import { tableEditing, columnResizing, goToNextCell, addColumnBefore, addColumnAfter, deleteColumn, addRowBefore, addRowAfter, deleteRow, deleteTable, mergeCells, splitCell, toggleHeaderColumn, toggleHeaderRow, toggleHeaderCell, setCellAttr, fixTables, CellSelection, } from 'https://cdn.skypack.dev/pin/prosemirror-tables@v1.1.1-9EhmoOn2V5XWW8VRE0Hp/mode=imports,min/optimized/prosemirror-tables.js';
+    import { v4 as uuidv4 } from 'https://cdn.skypack.dev/pin/uuid@v8.3.2-XAQ9X05vJqvKpZccxFGc/mode=imports,min/optimized/uuid.js'
+
+    function updateColumns(node, colgroup, table, cellMinWidth, overrideCol, overrideValue) {
+        let totalWidth = 0
+        let fixedWidth = true
+        let nextDOM = colgroup.firstChild
+        const row = node.firstChild
+        for (let i = 0, col = 0; i < row.childCount; i += 1) {
+            const { colspan, colwidth } = row.child(i).attrs
+            for (let j = 0; j < colspan; j += 1, col += 1) {
+                const hasWidth = overrideCol === col ? overrideValue : colwidth && colwidth[j]
+                const cssWidth = hasWidth ? `${hasWidth}px` : ''
+                totalWidth += hasWidth || cellMinWidth
+                if (!hasWidth) {
+                    fixedWidth = false
+                }
+                if (!nextDOM) {
+                    colgroup.appendChild(document.createElement('col')).style.width = cssWidth
+                }
+                else {
+                    if (nextDOM.style.width !== cssWidth) {
+                        nextDOM.style.width = cssWidth
+                    }
+                    nextDOM = nextDOM.nextSibling
+                }
+            }
+        }
+        while (nextDOM) {
+            const after = nextDOM.nextSibling
+            nextDOM.parentNode.removeChild(nextDOM)
+            nextDOM = after
+        }
+        if (fixedWidth) {
+            table.style.width = `${totalWidth}px`
+            table.style.minWidth = ''
+        }
+        else {
+            table.style.width = ''
+            table.style.minWidth = `${totalWidth}px`
+        }
+    }
+    function isCellSelection(v) {
+        return v instanceof CellSelection
+    }
+    const deleteTableWhenAllCellsSelected = ({ editor }) => {
+        const { selection } = editor.state
+
+        if (!isCellSelection(selection)) return false
+
+        let cellCount = 0
+
+        const table = findParentNodeClosestToPos(selection.ranges[0].$from, node => node.type.name === 'table')
+
+        table === null || table === void 0 ? void 0 : table.node.descendants(node => {
+            if (node.type.name === 'table') return false
+
+            if (['tableCell', 'tableHeader'].includes(node.type.name)) cellCount += 1
+        })
+
+        const allCellsSelected = cellCount === selection.ranges.length
+        if (!allCellsSelected) return false
+
+        editor.commands.deleteTable()
+
+        return true
+    }
+
+    function createCell(cellType, cellContent) {
+        if (cellContent) return cellType.createChecked(null, cellContent)
+
+        return cellType.createAndFill()
+    }
+
+    function getTableNodeTypes(schema) {
+        if (schema.cached.tableNodeTypes) return schema.cached.tableNodeTypes
+
+        const roles = {}
+        Object.keys(schema.nodes).forEach(type => {
+            const nodeType = schema.nodes[type]
+            if (nodeType.spec.tableRole) {
+                roles[nodeType.spec.tableRole] = nodeType
+            }
+        })
+
+        schema.cached.tableNodeTypes = roles
+        return roles
+    }
+
+    function createTable(schema, rowsCount, colsCount, withHeaderRow, cellContent) {
+        const types = getTableNodeTypes(schema)
+        const headerCells = []
+        const cells = []
+
+        for (let index = 0; index < colsCount; index += 1) {
+            const cell = createCell(types.cell, cellContent)
+
+            if (cell) cells.push(cell)
+
+            if (withHeaderRow) {
+                const headerCell = createCell(types.header_cell, cellContent)
+
+                if (headerCell) headerCells.push(headerCell)
+            }
+        }
+
+        const rows = []
+
+        for (let index = 0; index < rowsCount; index += 1) {
+            rows.push(types.row.createChecked(null, withHeaderRow && index === 0 ? headerCells : cells))
+        }
+
+        return types.table.createChecked(null, rows)
+    }
+
+    class TableView {
+        constructor(node, cellMinWidth) {
+            this.node = node
+            this.cellMinWidth = cellMinWidth
+            this.dom = document.createElement('div')
+            this.dom.className = 'tableWrapper'
+
+            const tableElementToAppend = document.createElement('table')
+            for (const [key, value] of Object.entries(this.node.attrs)) {
+                tableElementToAppend.setAttribute(key, value)
+            }
+
+            this.table = this.dom.appendChild(tableElementToAppend)
+            this.colgroup = this.table.appendChild(document.createElement('colgroup'))
+            updateColumns(node, this.colgroup, this.table, cellMinWidth)
+            this.contentDOM = this.table.appendChild(document.createElement('tbody'))
+        }
+
+        update(node) {
+            if (node.type !== this.node.type) return false
+            this.node = node
+
+            updateColumns(node, this.colgroup, this.table, this.cellMinWidth)
+
+            const tableElement = document.querySelector(`.ProseMirror [uuid="${this.node.attrs.uuid}"]`)
+
+            if (tableElement) {
+                for (const [key, value] of Object.entries(node.attrs)) {
+                    tableElement.setAttribute(key, value)
+                }
+            }
+
+            return true
+        }
+
+        ignoreMutation(mutation) {
+            return mutation.type === 'attributes' && (mutation.target === this.table || this.colgroup.contains(mutation.target))
+        }
+    }
+    const Table = Node.create({
+        name: 'table',
+        addAttributes() {
+            return {
+                show_borders: {
+                    parseHTML: element => {
+                        const val = element.getAttribute('show_borders')
+                        return ['true', 'false'].includes(val) ? val : 'true'
+                    }
+                },
+                uuid: {
+                    parseHTML: element => element.getAttribute('uuid') || uuidv4()
+                },
+            }
+        },
+        addOptions() {
+            return {
+                HTMLAttributes: {},
+                resizable: false,
+                handleWidth: 5,
+                cellMinWidth: 25,
+                // TODO: fix
+                View: TableView,
+                lastColumnResizable: true,
+                allowTableNodeSelection: false,
+            }
+        },
+        content: 'tableRow+',
+        tableRole: 'table',
+        isolating: true,
+        group: 'block',
+        parseHTML() {
+            return [
+                { tag: 'table' },
+            ]
+        },
+        renderHTML({ HTMLAttributes }) {
+            return ['table', mergeAttributes(this.options.HTMLAttributes, HTMLAttributes), ['tbody', 0]]
+        },
+        addCommands() {
+            return {
+                insertTable: ({ rows = 3, cols = 3, withHeaderRow = true } = {}) => ({ tr, dispatch, editor }) => {
+                    const node = createTable(editor.schema, rows, cols, withHeaderRow)
+
+                    node.attrs = { ...node.attrs, show_borders: 'true', uuid: uuidv4() }
+                    if (dispatch) {
+                        const offset = tr.selection.anchor + 1
+                        tr.replaceSelectionWith(node)
+                            .scrollIntoView()
+                            .setSelection(TextSelection.near(tr.doc.resolve(offset)))
+                    }
+                    return true
+                },
+                addColumnBefore: () => ({ state, dispatch }) => addColumnBefore(state, dispatch),
+                addColumnAfter: () => ({ state, dispatch }) => addColumnAfter(state, dispatch),
+                deleteColumn: () => ({ state, dispatch }) => deleteColumn(state, dispatch),
+                addRowBefore: () => ({ state, dispatch }) => addRowBefore(state, dispatch),
+                addRowAfter: () => ({ state, dispatch }) => addRowAfter(state, dispatch),
+                deleteRow: () => ({ state, dispatch }) => deleteRow(state, dispatch),
+                deleteTable: () => ({ state, dispatch }) => deleteTable(state, dispatch),
+                mergeCells: () => ({ state, dispatch }) => mergeCells(state, dispatch),
+                splitCell: () => ({ state, dispatch }) => splitCell(state, dispatch),
+                toggleHeaderColumn: () => ({ state, dispatch }) => toggleHeaderColumn(state, dispatch),
+                toggleHeaderRow: () => ({ state, dispatch }) => toggleHeaderRow(state, dispatch),
+                toggleHeaderCell: () => ({ state, dispatch }) => toggleHeaderCell(state, dispatch),
+                mergeOrSplit: () => ({ state, dispatch }) => {
+                    if (mergeCells(state, dispatch)) {
+                        return true
+                    }
+                    return splitCell(state, dispatch)
+                },
+                setCellAttribute: (name, value) => ({ state, dispatch }) => setCellAttr(name, value)(state, dispatch),
+                goToNextCell: () => ({ state, dispatch }) => goToNextCell(1)(state, dispatch),
+                goToPreviousCell: () => ({ state, dispatch }) => goToNextCell(-1)(state, dispatch),
+                fixTables: () => ({ state, dispatch }) => {
+                    if (dispatch) {
+                        fixTables(state)
+                    }
+                    return true
+                },
+                setCellSelection: position => ({ tr, dispatch }) => {
+                    if (dispatch) {
+                        const selection = CellSelection.create(tr.doc, position.anchorCell, position.headCell)
+                        // @ts-ignore
+                        tr.setSelection(selection)
+                    }
+                    return true
+                },
+            }
+        },
+        addKeyboardShortcuts() {
+            return {
+                Tab: () => {
+                    if (this.editor.commands.goToNextCell()) {
+                        return true
+                    }
+                    if (!this.editor.can().addRowAfter()) {
+                        return false
+                    }
+                    return this.editor
+                        .chain()
+                        .addRowAfter()
+                        .goToNextCell()
+                        .run()
+                },
+                'Shift-Tab': () => this.editor.commands.goToPreviousCell(),
+                Backspace: deleteTableWhenAllCellsSelected,
+                'Mod-Backspace': deleteTableWhenAllCellsSelected,
+                Delete: deleteTableWhenAllCellsSelected,
+                'Mod-Delete': deleteTableWhenAllCellsSelected,
+            }
+        },
+        addProseMirrorPlugins() {
+            const isResizable = this.options.resizable && this.editor.isEditable
+            return [
+                ...(isResizable ? [columnResizing({
+                    handleWidth: this.options.handleWidth,
+                    cellMinWidth: this.options.cellMinWidth,
+                    View: this.options.View,
+                    // TODO: PR for @types/prosemirror-tables
+                    // @ts-ignore (incorrect type)
+                    lastColumnResizable: this.options.lastColumnResizable,
+                })] : []),
+                tableEditing({
+                    allowTableNodeSelection: this.options.allowTableNodeSelection,
+                }),
+            ]
+        },
+        extendNodeSchema(extension) {
+            const context = {
+                name: extension.name,
+                options: extension.options,
+                storage: extension.storage,
+            }
+            return {
+                tableRole: callOrReturn(getExtensionField(extension, 'tableRole', context)),
+            }
+        },
+    })
+    import TableHeader from 'https://cdn.skypack.dev/pin/@tiptap/extension-table-header@v2.0.0-beta.22-oYUDpuu5W1jzCrd1pp5r/mode=imports,min/optimized/@tiptap/extension-table-header.js'
+    import TableRow from 'https://cdn.skypack.dev/pin/@tiptap/extension-table-row@v2.0.0-beta.19-iJtlNisIKAkjx9zt2aHe/mode=imports,min/optimized/@tiptap/extension-table-row.js'
+    import TableCell from 'https://cdn.skypack.dev/pin/@tiptap/extension-table-cell@v2.0.0-beta.20-qWRkKX9wVaXeNJd7QeY9/mode=imports,min/optimized/@tiptap/extension-table-cell.js'
+    // {% endif %}
+
+    import { liftTarget } from 'https://cdn.skypack.dev/pin/prosemirror-transform@v1.3.3-ZkJUQnVF0lYwd5WGUW6w/mode=imports,min/optimized/prosemirror-transform.js'
+
+    // {% if 'typography' in widget.config.extensions%}
+    import Typography from 'https://cdn.skypack.dev/pin/@tiptap/extension-typography@v2.0.0-beta.19-kP6555hNLcXTXbhwCNB7/mode=imports,min/optimized/@tiptap/extension-typography.js'
+    // {% endif %}
+
+    // {% if widget.config.placeholderText %}
+    import Placeholder from 'https://cdn.skypack.dev/pin/@tiptap/extension-placeholder@v2.0.0-beta.45-SMmkUMlbhmOl2pqcZ7mA/mode=imports,min/optimized/@tiptap/extension-placeholder.js'
+    // {% endif %}
+
+    // {% if 'jinjaSyntaxHighlight' in widget.config.extensions%}
+    import { Decoration, DecorationSet } from 'https://cdn.skypack.dev/pin/prosemirror-view@v1.23.4-9HYKir90PdVyv5URjHue/mode=imports,min/optimized/prosemirror-view.js'
+    // {% endif %}
+
+    // {% for custom_extension in widget.config.custom_extensions %}
+        // {% if custom_extension.source_static %}
+            import {{ '{' }} {{ custom_extension.module_name }} {{ '}' }} from '{% autoescape off %}{% static custom_extension.source_static %}{% endautoescape %}'
+        // {% else %}
+            import {{ '{' }}  {{ custom_extension.module_name }}  {{ '}' }} from '{{ custom_extension.source_url }}'
+        // {% endif %}
+    // {% endfor %}
+
+    // {% if 'indent' in widget.config.extensions%}
+    const clamp = (val, min, max) => {
+        if (val < min) {
+            return min
+        }
+        if (val > max) {
+            return max
+        }
+        return val
+    }
+
+    const IndentProps = {
+        min: 0,
+        max: 210,
+
+        more: 30,
+        less: -30
+    }
+
+    function isBulletListNode(node) {
+        return node.type.name === 'bullet_list'
+    }
+
+    function isOrderedListNode(node) {
+        return node.type.name === 'order_list'
+    }
+
+    function isTodoListNode(node) {
+        return node.type.name === 'todo_list'
+    }
+
+    function isListNode(node) {
+        return isBulletListNode(node) ||
+            isOrderedListNode(node) ||
+            isTodoListNode(node)
+    }
+
+    function setNodeIndentMarkup(tr, pos, delta) {
+        if (!tr.doc) return tr
+
+        const node = tr.doc.nodeAt(pos)
+        if (!node) return tr
+
+        const minIndent = IndentProps.min
+        const maxIndent = IndentProps.max
+
+        const indent = clamp(
+            (node.attrs.indent || 0) + delta,
+            minIndent,
+            maxIndent,
+        )
+
+        if (indent === node.attrs.indent) return tr
+
+        const nodeAttrs = {
+            ...node.attrs,
+            indent,
+        }
+
+        return tr.setNodeMarkup(pos, node.type, nodeAttrs, node.marks)
+    }
+
+    const updateIndentLevel = (tr, delta) => {
+        const { doc, selection } = tr
+
+        if (!doc || !selection) return tr
+
+        if (!(selection instanceof TextSelection || selection instanceof AllSelection)) {
+            return tr
+        }
+
+        const { from, to } = selection
+
+        doc.nodesBetween(from, to, (node, pos) => {
+            const nodeType = node.type
+
+            if (nodeType.name === 'paragraph' || nodeType.name === 'heading') {
+                tr = setNodeIndentMarkup(tr, pos, delta)
+                return false
+            } if (isListNode(node)) {
+                return false
+            }
+            return true
+        })
+
+        return tr
+    }
+
+    const Indent = Extension.create({
+        name: 'indent',
+
+        addOptions() {
+            return {
+                types: ['heading', 'paragraph'],
+                indentLevels: [0, 30, 60, 90, 120, 150, 180, 210],
+                defaultIndentLevel: 0,
+            }
+        },
+
+        addGlobalAttributes() {
+            return [
+                {
+                    types: this.options.types,
+                    attributes: {
+                        indent: {
+                            default: this.options.defaultIndentLevel,
+                            renderHTML: attributes => ({ style: `margin-left: ${attributes.indent}px!important;` }),
+                            parseHTML: element => parseInt(element.style.marginLeft) || this.options.defaultIndentLevel,
+                        },
+                    },
+                },
+            ]
+        },
+
+        addCommands() {
+            return {
+                indent: () => ({ tr, state, dispatch, editor }) => {
+                    const { selection } = state
+                    tr = tr.setSelection(selection)
+                    tr = updateIndentLevel(tr, IndentProps.more)
+
+                    if (tr.docChanged) {
+                        // eslint-disable-next-line no-unused-expressions
+                        dispatch && dispatch(tr)
+                        return true
+                    }
+
+                    editor.chain().focus().run()
+
+                    return false
+                },
+                outdent: () => ({ tr, state, dispatch, editor }) => {
+                    const { selection } = state
+                    tr = tr.setSelection(selection)
+                    tr = updateIndentLevel(tr, IndentProps.less)
+
+                    if (tr.docChanged) {
+                        // eslint-disable-next-line no-unused-expressions
+                        dispatch && dispatch(tr)
+                        return true
+                    }
+
+                    editor.chain().focus().run()
+
+                    return false
+                },
+            }
+        },
+    })
+    // {% endif %}
+
+    // {% if 'jinjaSyntaxHighlight' in widget.config.extensions%}
+    function runAllLinterPlugins(doc, plugins) {
+        const decorations = [];
+        const results = plugins.map(LinterPlugin => new LinterPlugin(doc).scan().getResults()).flat();
+        results.forEach(issue => {
+            decorations.push(Decoration.inline(issue.from, issue.to, { class: issue.class }));
+        });
+        return DecorationSet.create(doc, decorations);
+    }
+
+    const Linter = Extension.create({
+        name: 'linter',
+        addOptions() {
+            return {
+                plugins: [],
+            }
+        },
+        addProseMirrorPlugins() {
+            const { plugins } = this.options;
+            return [
+                new Plugin({
+                    key: new PluginKey('linter'),
+                    state: {
+                        init(_, { doc }) {
+                            return runAllLinterPlugins(doc, plugins);
+                        },
+                        apply(transaction, oldState) {
+                            return transaction.docChanged
+                                ? runAllLinterPlugins(transaction.doc, plugins)
+                                : oldState;
+                        },
+                    },
+                    props: {
+                        decorations(state) {
+                            return this.getState(state);
+                        },
+                    },
+                }),
+            ];
+        },
+    });
+
+    class LinterPlugin {
+        constructor(doc) {
+            this.results = [];
+            this.doc = doc;
+        }
+        record(from, to, className) {
+            this.results.push({
+                from,
+                to,
+                class: className
+            });
+        }
+        getResults() {
+            return this.results;
+        }
+    }
+
+    class JinjaHighlight extends LinterPlugin {
+        constructor() {
+            super(...arguments);
+            this.regex = /(\{\{[^{}]+\}\})|(\{\%[^{}]+\%\})|(\[\%[^{}]+\%\])/g;
+            this.className = 'jinja-syntax';
+        }
+        scan() {
+            this.doc.descendants((node, position) => {
+                if (!node.isText) {
+                    return;
+                }
+                let match;
+                do {
+                    match = this.regex.exec(node.text);
+                    if (match) {
+                        this.record(position + match.index, position + match.index + match[0].length, this.className);
+                    }
+                } while (match);
+            });
+            return this;
+        }
+    }
+    // {% endif %}
+
+    function isTextSelected(editor) {
+        const state = editor.state
+        const selection = state.selection
+
+        if (!state || !selection) return false
+
+        const text = state.doc.textBetween(selection.from, selection.to, ' ')
+
+        return !!text
+    }
+
+    function clearFormatting(state, editorView) {
+        const { tr } = editorView.state
+        const { $from, $to } = tr.selection
+
+        // remove marks
+        tr.removeMark($from.pos, $to.pos)
+
+        // eslint-disable-next-line consistent-return
+        tr.doc.nodesBetween($from.pos, $to.pos, (node, pos) => {
+            const formattedNodeType = state.schema.nodes[node.type.name]
+
+            if (
+                (formattedNodeType && formattedNodeType.name !== 'paragraph') ||
+                formattedNodeType.name !== 'text' ||
+                !isListNode(formattedNodeType)
+            ) {
+                const fromPos = tr.doc.resolve(tr.mapping.map(pos + 1))
+                const toPos = tr.doc.resolve(tr.mapping.map(pos + node.nodeSize - 1))
+                const nodeRange = fromPos.blockRange(toPos)
+
+                if (nodeRange) {
+                    const targetLiftDepth = liftTarget(nodeRange)
+
+                    if (formattedNodeType.isTextblock) {
+                        tr.setNodeMarkup(nodeRange.start, state.schema.nodes.paragraph)
+                        return false
+                    }
+                    if (targetLiftDepth || targetLiftDepth === 0) {
+                        tr.lift(nodeRange, targetLiftDepth)
+                        return false
+                    }
+                }
+            }
+        })
+        tr.setStoredMarks([])
+        editorView.dispatch(tr)
+        return true
+    }
+
+    const clearFormat = () => {
+        if (isTextSelected(editor) && editor) {
+            clearFormatting(editor.state, editor.view)
+        }
+    }
+
+    const onHeadingButtonClicked = (level) => editor.chain().toggleHeading({ level }).focus().run()
+
+    let isJinjaActive = true
+
+    let isSpellCheckActive = false
+
+    const buttonsConfig = {
+        ['{{ widget.name }}-bold']: {
+            isActiveCheck: ['bold'],
+            command: (editor) => editor.chain().focus().toggleBold().run(),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.bold }}',
+        },
+        ['{{ widget.name }}-italic']: {
+            isActiveCheck: ['italic'],
+            command: (editor) => editor.chain().focus().toggleItalic().run(),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.italic }}',
+        },
+        ['{{ widget.name }}-underline']: {
+            isActiveCheck: ['underline'],
+            command: (editor) => editor.chain().focus().toggleUnderline().run(),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.underline }}',
+        },
+        ['{{ widget.name }}-strike']: {
+            isActiveCheck: ['strike'],
+            command: (editor) => editor.chain().focus().toggleStrike().run(),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.strike }}',
+        },
+
+        ['{{ widget.name }}-h1']: {
+            isActiveCheck: ['heading', { level: 1 }],
+            command: (editor) => onHeadingButtonClicked(1, editor),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.h1 }}',
+        },
+        ['{{ widget.name }}-h2']: {
+            isActiveCheck: ['heading', { level: 2 }],
+            command: (editor) => onHeadingButtonClicked(2, editor),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.h2 }}',
+        },
+        ['{{ widget.name }}-h3']: {
+            isActiveCheck: ['heading', { level: 3 }],
+            command: (editor) => onHeadingButtonClicked(3, editor),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.h3 }}',
+        },
+        ['{{ widget.name }}-h4']: {
+            isActiveCheck: ['heading', { level: 4 }],
+            command: (editor) => onHeadingButtonClicked(4, editor),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.h4 }}',
+        },
+        ['{{ widget.name }}-h5']: {
+            isActiveCheck: ['heading', { level: 5 }],
+            command: (editor) => onHeadingButtonClicked(5, editor),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.h5 }}',
+        },
+        ['{{ widget.name }}-h6']: {
+            isActiveCheck: ['heading', { level: 6 }],
+            command: (editor) => onHeadingButtonClicked(6, editor),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.h6 }}',
+        },
+
+        ['{{ widget.name }}-alignLeft']: {
+            isActiveCheck: [{ textAlign: 'left' }],
+            command: (editor) => editor.chain().setTextAlign('left').focus().run(),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.alignLeft }}',
+        },
+        ['{{ widget.name }}-alignCenter']: {
+            isActiveCheck: [{ textAlign: 'center' }],
+            command: (editor) => editor.chain().setTextAlign('center').focus().run(),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.alignCenter }}',
+        },
+        ['{{ widget.name }}-alignRight']: {
+            isActiveCheck: [{ textAlign: 'right' }],
+            command: (editor) => editor.chain().setTextAlign('right').focus().run(),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.alignRight }}',
+        },
+        ['{{ widget.name }}-alignJustify']: {
+            isActiveCheck: [{ textAlign: 'justify' }],
+            command: (editor) => editor.chain().setTextAlign('justify').focus().run(),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.alignJustify }}',
+        },
+        ['{{ widget.name }}-indent']: {
+            command: (editor) => editor.chain().indent().focus().run(),
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.indent }}',
+        },
+        ['{{ widget.name }}-outdent']: {
+            command: (editor) => editor.chain().outdent().focus().run(),
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.outdent }}',
+        },
+
+        ['{{ widget.name }}-bulletList']: {
+            isActiveCheck: ['bulletList'],
+            command: (editor) => editor.chain().toggleBulletList().focus().run(),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.bulletList }}',
+        },
+        ['{{ widget.name }}-orderedList']: {
+            isActiveCheck: ['orderedList'],
+            command: (editor) => editor.chain().toggleOrderedList().focus().run(),
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.orderedList }}',
+        },
+
+        ['{{ widget.name }}-addTable']: {
+            command: (editor, config = { rows: 3, cols: 3, withHeaderRow: true }) => {
+                editor.chain().insertTable(config).focus().run()
+            },
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.addTable }}',
+        },
+        ['{{ widget.name }}-deleteTable']: {
+            command: (editor) => editor.chain().deleteTable().focus().run(),
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.deleteTable }}',
+            disabled: (editor) => !editor.can().deleteTable(),
+        },
+        ['{{ widget.name }}-addColumnBefore']: {
+            command: (editor) => editor.chain().addColumnBefore().focus().run(),
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.addColumnBefore }}',
+            disabled: (editor) => !editor.can().addColumnBefore(),
+        },
+        ['{{ widget.name }}-addColumnAfter']: {
+            command: (editor) => editor.chain().addColumnAfter().focus().run(),
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.addColumnAfter }}',
+            disabled: (editor) => !editor.can().addColumnAfter(),
+        },
+        ['{{ widget.name }}-deleteColumn']: {
+            command: (editor) => editor.chain().deleteColumn().focus().run(),
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.deleteColumn }}',
+            disabled: (editor) => !editor.can().deleteColumn(),
+        },
+        ['{{ widget.name }}-addRowBefore']: {
+            command: (editor) => editor.chain().addRowBefore().focus().run(),
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.addRowBefore }}',
+            disabled: (editor) => !editor.can().addRowBefore(),
+        },
+        ['{{ widget.name }}-addRowAfter']: {
+            canBeActive: false,
+            command: (editor) => editor.chain().addRowAfter().focus().run(),
+            tooltip: '{{ widget.config.tooltips.addRowAfter }}',
+            disabled: (editor) => !editor.can().addRowAfter(),
+        },
+        ['{{ widget.name }}-deleteRow']: {
+            command: (editor) => editor.chain().deleteRow().focus().run(),
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.deleteRow }}',
+            disabled: (editor) => !editor.can().deleteRow(),
+        },
+        ['{{ widget.name }}-mergeCells']: {
+            command: (editor) => editor.chain().mergeCells().focus().run(),
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.mergeCells }}',
+            disabled: (editor) => !editor.can().mergeCells(),
+        },
+        ['{{ widget.name }}-splitCell']: {
+            command: (editor) => editor.chain().splitCell().focus().run(),
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.splitCell }}',
+            disabled: (editor) => !editor.can().splitCell(),
+        },
+        ['{{ widget.name }}-toggleHeaderColumn']: {
+            command: (editor) => editor.chain().toggleHeaderColumn().focus().run(),
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.toggleHeaderColumn }}',
+            disabled: (editor) => !editor.can().toggleHeaderColumn(),
+        },
+        ['{{ widget.name }}-toggleHeaderRow']: {
+            command: (editor) => editor.chain().toggleHeaderRow().focus().run(),
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.toggleHeaderRow }}',
+            disabled: (editor) => !editor.can().toggleHeaderRow(),
+        },
+        ['{{ widget.name }}-toggleHeaderCell']: {
+            command: (editor) => editor.chain().toggleHeaderCell().focus().run(),
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.toggleHeaderCell }}',
+            disabled: (editor) => !editor.can().toggleHeaderCell(),
+        },
+        ['{{ widget.name }}-toggleTableBorders']: {
+            command: (editor) => {
+                const newState = editor.getAttributes('table').show_borders === 'true' ? 'false' : 'true'
+                editor.commands.updateAttributes('table', { 'show_borders': newState })
+                editor.commands.focus()
+            },
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.toggleTableBorders }}',
+            disabled: (editor) => !editor.can().deleteTable(),
+        },
+        ['{{ widget.name }}-clearFormat']: {
+            command: (editor) => {
+                editor.chain().unsetAllMarks().focus().run()
+                clearFormat()
+            },
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.clearFormat }}',
+        },
+        ['{{ widget.name }}-jinja-highlight']: {
+            command: (editor) => {
+                const proseMirror = document.querySelector('#{{ widget.name }}-tiptap-editor-div')
+                const jinjaSyntaxHighlightButton = document.querySelector('#{{ widget.name }}-jinja-highlight')
+
+                if (isJinjaActive) {
+                    isJinjaActive = false
+                    proseMirror.classList.remove('jinjaSyntaxHighlightActivated')
+                    jinjaSyntaxHighlightButton.classList.remove('is-active')
+                } else {
+                    isJinjaActive = true
+                    proseMirror.classList.add('jinjaSyntaxHighlightActivated')
+                    jinjaSyntaxHighlightButton.classList.add('is-active')
+                }
+            },
+            canBeActive: false,
+            tooltip: '{{ widget.config.tooltips.jinjaHighlight }}'
+        },
+        ['{{ widget.name }}-spellcheck']: {
+            command: (editor) => {
+                const state = JSON.parse(document.querySelector('.ProseMirror')?.getAttribute('spellcheck') || '')
+
+                const newState = `${!state}`
+
+                if (!['true', 'false'].includes(newState)) return
+
+                editor.setOptions({
+                  editorProps: {
+                    attributes: {
+                      spellcheck: newState
+                    }
+                  }
+                })
+
+                isSpellCheckActive = !state
+            },
+            canBeActive: true,
+            tooltip: '{{ widget.config.tooltips.spellcheck }}',
+            isActiveCheck: () => isSpellCheckActive
+        },
+        // {% for custom_extension in widget.config.custom_extensions %}
+            // {% if custom_extension.buttonsconfig_include %}
+                {% include custom_extension.buttonsconfig_include %},
+            // {% endif %}
+        // {% endfor %}
+    }
+
+    const setToolTips = () => {
+        for (const id in buttonsConfig) {
+            const element = document.querySelector(`#${id}`)
+            if (element && buttonsConfig[id].tooltip) {
+                tippy(`#${id}`, {
+                    content: buttonsConfig[id].tooltip,
+                })
+            }
+        }
+    }
+
+    const checkIsActive = (editor) => {
+        Object.keys(buttonsConfig).forEach((key) => {
+            const featureButton = document.querySelector(`#${key}`)
+
+            if (buttonsConfig[key].hasOwnProperty('disabled') && featureButton) {
+                if (buttonsConfig[key].disabled(editor)) {
+                    featureButton.classList.add('disabled')
+                    return
+                }
+                featureButton.classList.remove('disabled')
+            }
+
+            if (!buttonsConfig[key].canBeActive) return
+
+            let isActive
+            if (typeof buttonsConfig[key].isActiveCheck === 'function') {
+                isActive = buttonsConfig[key].isActiveCheck()
+            } else  {
+                if (buttonsConfig[key].isActiveCheck.length > 1) {
+                    isActive = editor.isActive(buttonsConfig[key].isActiveCheck[0], buttonsConfig[key].isActiveCheck[1])
+                } else if ((buttonsConfig[key].isActiveCheck.length = 1)) {
+                    isActive = editor.isActive(buttonsConfig[key].isActiveCheck[0])
+                }
+            }
+
+            if (featureButton && isActive) featureButton.classList.add('is-active')
+            else if (featureButton && buttonsConfig[key].isActiveCheck) featureButton.classList.remove('is-active')
+        })
+    }
+
+    const textArea = document.querySelector('#{{ widget.name }}-tiptap-editor-textarea')
+    // {% if widget.config.tiptapOutputFormat == "html" %}
+    let initialEditorContent = textArea.value.trim()
+    // {% elif widget.config.tiptapOutputFormat == "json" %}
+    let initialEditorContent = JSON.parse(textArea.value)
+    // {% endif %}
+
+    let showingMenubar = false
+
+    const headingLevels = []
+    // {% if 'h1' in widget.config.extensions  %}
+    headingLevels.push(1)
+    // {% endif %}
+    // {% if 'h2' in widget.config.extensions  %}
+    headingLevels.push(2)
+    // {% endif %}
+    // {% if 'h3' in widget.config.extensions  %}
+    headingLevels.push(3)
+    // {% endif %}
+    // {% if 'h4' in widget.config.extensions  %}
+    headingLevels.push(4)
+    // {% endif %}
+    // {% if 'h5' in widget.config.extensions  %}
+    headingLevels.push(5)
+    // {% endif %}
+    // {% if 'h6' in widget.config.extensions  %}
+    headingLevels.push(6)
+    // {% endif %}
+
+
+    const editor = new Editor({
+        element: document.querySelector('#{{ widget.name }}-tiptap-editor-div'),
+        editorProps: {
+            attributes: {
+                spellcheck: "false"
+            }
+        },
+        extensions: [
+            Document,
+
+            Paragraph,
+
+            Text,
+
+            Dropcursor,
+
+            Gapcursor,
+
+            History,
+
+            // {% if 'bold' in widget.config.extensions %}
+            Bold,
+            // {% endif %}
+
+            // {% if 'italic' in widget.config.extensions %}
+            Italic,
+            // {% endif %}
+
+            // {% if 'underline' in widget.config.extensions %}
+            Underline,
+            // {% endif %}
+
+            // {% if 'strikethrough' in widget.config.extensions %}
+            Strike,
+            // {% endif %}
+
+            // Code,
+
+            // CodeBlock,
+
+            // {% if 'h1' in widget.config.extensions or 'h2' in widget.config.extensions or 'h3' in widget.config.extensions or 'h4' in widget.config.extensions or 'h5' in widget.config.extensions or 'h6' in widget.config.extensions %}
+            Heading.configure({
+                levels: headingLevels,
+            }),
+            // {% endif %}
+
+            // {% if 'hardBreak' in widget.config.extensions %}
+            HardBreak,
+            // {% endif %}
+
+            // Blockquote,
+
+            // HorizontalRule,
+
+            // {% if 'bulletList' in widget.config.extensions or 'orderedList' in widget.config.extensions %}
+            ListItem,
+            // {% endif %}
+
+            // {% if 'bulletList' in widget.config.extensions %}
+            BulletList,
+            // {% endif %}
+
+            // {% if 'orderedList' in widget.config.extensions %}
+            OrderedList,
+            // {% endif %}
+
+            // {% if 'textAlign' in widget.config.extensions %}
+            TextAlign.configure({ types: ['heading', 'paragraph'] }),
+            // {% endif %}
+
+            // {% if 'table' in widget.config.extensions%}
+            Table.configure({ resizable: true }),
+
+            TableRow,
+
+            TableCell,
+
+            TableHeader,
+            // {% endif %}
+
+            // {% if 'typography' in widget.config.extensions%}
+            Typography,
+            // {% endif %}
+
+            // {% if widget.config.placeholderText %}
+            Placeholder.configure({ placeholder: "{{ widget.config.placeholderText}}" }),
+            // {% endif %}
+
+            // {% if 'indent' in widget.config.extensions%}
+            Indent,
+            // {% endif %}
+
+            // {% if 'jinjaSyntaxHighlight' in widget.config.extensions%}
+            Linter.configure({
+                plugins: [
+                    JinjaHighlight
+                ]
+            }),
+            // {% endif %}
+
+            // {% for custom_extension in widget.config.custom_extensions %}
+            //      {% if custom_extension.configuration_statement %}
+                {{ custom_extension.configuration_statement }},
+            //      {% else %}
+                {{ custom_extension.module_name}},
+            //      {% endif %}
+            // {% endfor %}
+        ],
+        content: initialEditorContent,
+        onUpdate({ editor }) {
+            checkIsActive(editor)
+            // {% if widget.config.tiptapOutputFormat == "html" %}
+            const currentEditorContent = editor.getHTML().trim()
+            // {% elif widget.config.tiptapOutputFormat == "json" %}
+            const currentEditorContent = JSON.stringify(editor.getJSON());
+            // {% endif %}
+            textArea.value = currentEditorContent
+            const notSavedWarningSpan = document.querySelector('#{{ widget.name }}-not-saved-warning')
+            const notSavedWarningSpacer = document.querySelector('#{{ widget.name }}-not-saved-warning-spacer')
+            if (notSavedWarningSpacer && notSavedWarningSpan) {
+                if (currentEditorContent === initialEditorContent) {
+                    notSavedWarningSpan.classList.remove('show')
+                    notSavedWarningSpacer.classList.remove('show')
+                } else {
+                    notSavedWarningSpan.classList.add('show')
+                    notSavedWarningSpacer.classList.add('show')
+                }
+            }
+        },
+        onCreate({ editor }) {
+            setTimeout(() => checkIsActive(editor), 100)
+        },
+        onFocus() {
+            if (!showingMenubar) {
+                const menubar = document.querySelector('#{{ widget.name }}-menubar')
+                if (menubar) menubar.classList.add('show')
+                showingMenubar = true
+            }
+        }
+    })
+
+    const clickFocusKeyListener = () => {
+        checkIsActive(editor)
+    }
+
+    setTimeout(() => {
+        setToolTips()
+
+        Object.keys(buttonsConfig).forEach((key) => {
+            const elementForKey = document.querySelector(`#${key}`)
+            if (elementForKey) {
+                elementForKey.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+
+                    buttonsConfig[key].command(editor)
+                    setTimeout(() => {
+                        checkIsActive(editor)
+                    }, 100)
+                })
+            }
+        })
+
+        const editorContentRendered = document.querySelector('#{{ widget.name }}-tiptap-editor-div')
+        editorContentRendered.addEventListener('focus', clickFocusKeyListener)
+        editorContentRendered.addEventListener('blur', clickFocusKeyListener)
+        editorContentRendered.addEventListener('selectionchange', clickFocusKeyListener)
+        editorContentRendered.addEventListener('mousedown', clickFocusKeyListener)
+        editorContentRendered.addEventListener('mouseup', clickFocusKeyListener)
+        editorContentRendered.addEventListener('keydown', clickFocusKeyListener)
+        editorContentRendered.addEventListener('keypress', clickFocusKeyListener)
+        editorContentRendered.addEventListener('keyup', clickFocusKeyListener)
+
+        const tableConfigListener = (e) => {
+            e.preventDefault()
+            e.stopPropagation()
+        }
+        const tableConfig = document.querySelector('.{{ widget.name }}-table-config')
+        if (tableConfig) tableConfig.addEventListener('click', tableConfigListener)
+
+        const addTableButtonListener = () => {
+            const xInput = document.querySelector('#{{ widget.name }}-x').value
+            const yInput = document.querySelector('#{{ widget.name }}-y').value
+
+            if (xInput && yInput) {
+                buttonsConfig['{{ widget.name }}-addTable'].command(editor, { rows: xInput, cols: yInput, withHeaderRow: true })
+            }
+        }
+        const addTableButton = document.querySelector('.{{ widget.name }}-add-table-button')
+        if (addTableButton) addTableButton.addEventListener('click', addTableButtonListener, { capture: true })
+    }, 1000);
+
+
+</script>
+<style>
+{% for custom_extension in widget.config.custom_extensions %}
+    {% if custom_extension.css_include %}
+        {% include custom_extension.css_include %},
+    {% endif %}
+{% endfor %}
+</style>

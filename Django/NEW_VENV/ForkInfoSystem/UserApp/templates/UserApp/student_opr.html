@@ -1,0 +1,90 @@
+{% extends 'courses/base.html' %}
+{% block content %}
+	<div class="row">
+        <div class="col-4">
+          <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Add Student</a>
+            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">New Post</a>
+            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Latest Post</a>
+            <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+          </div>
+          <br/>
+          <article class="media content-section">
+            <img class="card-img-top" src="https://thumbs.dreamstime.com/b/modern-guy-trendy-streetwear-schoolboy-student-books-backpack-male-character-school-design-flat-vector-modern-192761811.jpg" alt="Card image cap">
+        
+          </article>
+        </div>
+        <div class="col-8">
+          <div class="tab-content" id="nav-tabContent">
+            
+            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+			       <div class="content-section">
+			       		<form>
+					<div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label for="fname" placeholder="First Name">First Name </label>
+				      <input type="text"  class="form-control" id="fname" placeholder="Email">
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="lname" placeholder="Last Name">Last Name</label>
+				      <input type="text" class="form-control" id="lname" placeholder="Password">
+				    </div>
+				  </div>
+				  <div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label for="inputEmail4">Email</label>
+				      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="inputPassword4">Password</label>
+				      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputAddress">Address</label>
+				    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+				  </div>
+				  <div class="form-group">
+				  	<label for="tele">Contact No</label>
+				  	<input type="tel" class="form-control" id="tele" 
+            placeholder="Enter phone number" />
+				  </div>
+				  <div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label for="inputCity">City</label>
+				      <input type="text" class="form-control" id="inputCity">
+				    </div>
+				    <div class="form-group col-md-4">
+				      <label for="inputState">State</label>
+				      <input type="text" class="form-control" id="inputState">
+				    </div>
+				    <div class="form-group col-md-2">
+				      <label for="inputZip">Zip</label>
+				      <input type="text" class="form-control" id="inputZip">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="img">Image URL</label>
+				    <input type="text" class="form-control" id="img" placeholder="Image URL ......">
+				  </div>
+				 
+				  <button type="submit" class="btn btn-primary">Add Student</button>
+				</form>
+			   </div>
+			       
+            </div>
+            
+            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+              	--
+            </div>
+            
+            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+              	--
+            </div>
+            
+            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+          
+          </div>
+        </div>
+      </div>
+{% endblock content %}

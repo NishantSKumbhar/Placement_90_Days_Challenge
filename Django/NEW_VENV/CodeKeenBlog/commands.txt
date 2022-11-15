@@ -1,0 +1,3 @@
+python -m pip install Pillow
+
+pip install django-froala-editor
