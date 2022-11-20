@@ -1,30 +1,34 @@
 #include<iostream>
-
+#define N 4
 using namespace std;
 
-int N = 100;
-int board[100][100];
-void printSolution(int board[100][100]) { 
-    for (int i = 0; i < N; i++) { 
-        for (int j = 0; j < N; j++) 
-            cout << " " << board[i][j] << " "; 
-        cout << endl; 
-    } 
-} 
- 
-bool is_safe(int board[][], int row, int col){
-
+void print_board(int board[N][N]){
+	for(int i = 0; i < N; i++){
+		for(int j = 0; j < N; j++){
+			cout << " " << board[i][j] << " ";
+		}
+		printf("\n");
+	}
 }
 
-bool n_queen(int board[][], int row){
+
+bool isSafe(int board[N][N], int row, int col){
+	int 
+}
+
+// 10 ^ 18 => 1e18;
+
+// N X N Board
+bool NQueen(int board[][], int row){
+	// initially we start from row = 0 i.e 1
 	if(row == N){
 		return true;
 	}
 
 	for(int col = 0; col < N; col++){
-		if(is_safe(board, row, col)){
+		if(isSafe(board, row, col)){
 			board[row][col] = 1;
-			if n_queen(board, col+1){
+			if(NQueen(board, row+1)){
 				return true;
 			}
 			board[row][col] = 0;
@@ -34,15 +38,18 @@ bool n_queen(int board[][], int row){
 }
 
 int main(){
-	cout << "Enter the size of Grid\n";
-    cin >> N;
+	int board[N][N] = {
+		{0, 0, 0, 0},
+		{0, 0, 0, 0},
+		{0, 0, 0, 0},
+		{0, 0, 0, 0}
+	};
 
-	if (n_queen(board[][], 0) == false) { 
-        cout << "Solution does not exist"; 
-        return false; 
-    } 
-  
-    printSolution(board);
+	if(NQueen(board, 0)){
+		print_board(board);
+	}else{
+		cout << "Solution does not exit" << endl;
+	}
 	return 0;
 }
 

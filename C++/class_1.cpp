@@ -52,5 +52,17 @@ int main(){
 	m1.print_price();
 
 	Mobile m2(1999.9);
+
+	cout << "******************" << endl;
+	// int *p = &x;
+	Mobile *m3 = new Mobile;
+	m3->color = "BROWN";
+	cout << "m3:Color --> " << m3->color << endl;
+	m3->print_price();
+
+	
+	delete(m3);
+	
+	cout << m3->color ;
 	return 0;
 }

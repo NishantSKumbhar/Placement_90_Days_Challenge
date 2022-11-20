@@ -1,127 +1,84 @@
-#include<iostream>
-
+#include<bits/stdc++.h>
 using namespace std;
 
-
-void display(int *p){
-	for(int i = 0; i < 13; i++){
-		cout << *(p+i) << " ";
-	}
-	cout << endl;
-}
-
-struct Node{
-	int val;
-	struct Node * next;
-	Node(int x){
-		val = x;
-	}
-	Node(){
-		val = 0;
-	}
-};
-
-
-void insert_element_at_end(struct Node **START){
-	struct Node *n = new Node();
-	cout << "Enter the Value : ";
-	cin >> n->val;
-	n->next = NULL;
-
-	if(*START == NULL){
-		*START = n;
+void print_fibo(int n){
+	int n1 = 0;
+	int n2 = 1;
+	if(n == 1){
+		cout << n1;
+	}else if(n == 2){
+		cout << n1 << " " << n2;
 	}else{
-		struct Node *t = *START;
-		while(t->next){
-			t = t->next;
+		cout << n1 << " " << n2 << " ";
+		n -= 2;
+		while(n--){
+
+			int ans = n1+n2;
+			cout << ans << " ";
+			n1 = n2;
+			n2 = ans;
 		}
-		t->next = n;
-
 	}
 }
 
-void show_linkedList(struct Node *START){
-	struct Node *t = START;
-	int a = 0;
-	cout << "\nLinked List : " << endl;
-	while(t){
-		cout << t->val << " ---> ";
-		a = a*10 + t->val;
-		t = t->next;
-
+void print_fibo_rec(int n, int n1, int n2){
+	if(n < 1){
+		return;
 	}
 
-	cout << "Number is : " << a << endl;
+	n--;
+	cout << n1 + n2 << " ";
+	print_fibo_rec(n, n2, n1+n2);
 
 }
 
-Node* addTwoNumbers(Node* l1, Node* l2) {
-        Node *ans = new Node();
-        Node* src = ans;
-       // ans = NULL;
-        int ns1 = 0, ns2 = 0;
-        while(l1){
-            ns1 = ns1*10 + l1->val;
-            l1 = l1->next;   
-        }
-        while(l2){
-            ns2 = ns2*10 + l2->val;
-            l2 = l2->next;   
-        }
-        int addi = ns1 + ns2;
-        cout << "Addition is " << addi << endl;
-        while(addi != 0){
-            int x = addi % 10;
-            src->next = new Node(x);
-            src = src -> next;
-            addi = addi/10;
-            //cout << "addi "<< addi << endl;
-        }
-        //show_linkedList(ans);
-        return ans->next;
-}
-
-
-int main(){
+int get_fib_rec(int n, int n1, int n2){
 	
-	// struct Node *l1 = new Node();
-	// l1 = NULL;
-	// struct Node *l2 = new Node();
-	// l2 = NULL;
-	// insert_element_at_end(&l1);
-	// insert_element_at_end(&l1);
-	// insert_element_at_end(&l1);
-	// insert_element_at_end(&l2);
-	// insert_element_at_end(&l2);
-	// insert_element_at_end(&l2);
-	// show_linkedList(l1);
-	// show_linkedList(l2);
-	// struct Node*a = addTwoNumbers(l1, l2);
-	// show_linkedList(a);
-
-	int t;
-	cin >> t;
-	while(t--){
-		int n;
-		cin >> n;
-		char arr[n];
-		int qc = 0, ac = 0;
-		for(int i = 0; i < n; i++){
-			cin >> arr[i];
-			if(arr[i] == 'Q'){
-				qc++;
-			}else{
-				ac++;
-			}
-		}
-		if(arr[n-1] == 'Q'){
-			cout << "NO" << endl;
-		}else if(qc > ac){
-			cout << "NO" << endl;
-		}
-		else{
-			cout << "YES" << endl;
-		}
+	if(n < 1){
+		return n1+n2;
 	}
+
+	n--;
+	return get_fib_rec(n, n2, n1+n2);
+}
+
+void bubble(float brr[], int n){
+	for(int i = 0; i < n; i++){
+		cout << brr[i] << " ";
+	}
+	cout<<endl;
+	for(int j = 0; j < n; j++){
+		for(int i = 0; i < n-1; i++){
+		
+			if(brr[i] > brr[i+1]){
+			int temp = brr[i];
+			brr[i] = brr[i+1];
+			brr[i+1] = temp;
+		
+			}
+			
+		}	
+	}
+	
+
+	for(int i = 0; i < n; i++){
+		cout << brr[i] << " ";
+	}
+
+}
+int main(){
+
+	// int n;
+	// cin >> n;
+	// cout << "0 1 ";
+	// print_fibo_rec(n-2, 0, 1);
+	// cout<<endl;
+	// int j = 6;
+	// int b = get_fib_rec(j-2, 0, 1);
+	// cout << "6 th : " << b << endl;
+
+	float arr[] = {5, 1.66667, 3, 1 ,6, 4.5, 3};
+	bubble(arr, sizeof(arr)/sizeof(arr[0]));
 	return 0;
+
 }
